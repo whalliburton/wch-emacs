@@ -11,6 +11,7 @@
    "colors"
    "programming"
    "indentation"
+   "modeline"
    "keybindings"
    "last"
 
