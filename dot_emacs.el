@@ -26,7 +26,6 @@
 
           ))
 
-;;           ;; "yasnippets" ; using assoc
 ;;           "registers"
 ;;           "xterm"
 ;;           "automode"

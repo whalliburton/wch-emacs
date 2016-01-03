@@ -4,7 +4,8 @@
 (use-package lisp-helpers)
 
 ;; advanced highlighting of matching parentheses
-(use-package mic-paren)
+(use-package mic-paren
+  :config (paren-activate))
 
 ;; Show a vertical line (column highlighting) mode with (vline-mode).
 (use-package vline)
