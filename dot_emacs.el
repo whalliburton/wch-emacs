@@ -21,6 +21,7 @@
    "fonts"
    "keybindings"
    "ssh-keys"
+   "org"
    "last"
 
           ))
@@ -38,12 +39,11 @@
 ;;           "commands"
 ;;           "languages"
 ;;           "music"
-;;           "editing"
 ;;           "journal"
 ;;           "wiki"
 ;;           "multiple-cursors"
 ;;           "packages"
-;;           "org"
+
 ;;           "helm"
 
 
