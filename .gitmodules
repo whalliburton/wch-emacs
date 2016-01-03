@@ -1,0 +1,15 @@
+[submodule "site-lisp/magit"]
+	path = site-lisp/magit
+	url = https://github.com/magit/magit.git
+[submodule "site-lisp/use-package"]
+	path = site-lisp/use-package
+	url = https://github.com/jwiegley/use-package.git
+[submodule "site-lisp/projectile"]
+	path = site-lisp/projectile
+	url = https://github.com/bbatsov/projectile.git
+[submodule "site-lisp/tomatinho"]
+	path = site-lisp/tomatinho
+	url = https://github.com/konr/tomatinho.git
+[submodule "site-lisp/dash.el"]
+	path = site-lisp/dash.el
+	url = git@github.com:magnars/dash.el.git
