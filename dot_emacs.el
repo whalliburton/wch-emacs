@@ -17,9 +17,10 @@
    "modeline"
    "w3m"
    "erc"
-   "last"
    "magit"
+   "fonts"
    "keybindings"
+   "last"
 
           ))
 
@@ -45,6 +46,5 @@
 ;;           "packages"
 ;;           "org"
 ;;           "helm"
-;;           "colors"
-;;           "last"
+
 
