@@ -7,6 +7,7 @@
  '(
 
    "first"
+   "utility"
    "display"
    "colors"
    "programming"
