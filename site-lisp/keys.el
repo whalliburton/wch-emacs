@@ -14,7 +14,7 @@
 
 (defun keys ()
   (interactive)
-  (flet ((get-bindings (prefix)
+  (cl-flet ((get-bindings (prefix)
                        (loop for c across "abcdefghijklmnopqrstuvwxyz1234567890-="
                              collect (let ((key (format "%s%c" prefix c)))
                                        (list key (or (minor-mode-key-binding (read-kbd-macro key))

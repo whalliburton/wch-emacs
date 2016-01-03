@@ -1,18 +1,48 @@
 ;; programming.el
 
 
+(use-package lisp-helpers)
+
 ;; advanced highlighting of matching parentheses
 (use-package mic-paren)
 
 ;; Show a vertical line (column highlighting) mode with (vline-mode).
 (use-package vline)
 
+
+;;; Whitespace
+
+(setq-default indent-tabs-mode nil)
+
+(add-hook 'write-file-hooks 'safe-delete-trailing-whitespace)
+
+(setq whitespace-style '(tabs trailing))
+
+(add-hook 'lisp-mode-hook 'whitespace-mode)
+
+
+;;; HTML/CSS
+
 ;; major mode for editing SCSS files
 (use-package scss-mode)
 
-;; show function arglist or variable docstring in echo area
+
+;;; common lisp
+
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+
+(setq inferior-lisp-program "/usr/local/bin/sbcl --no-linedit")
+
+(use-package slime)
+
+
+;;; elisp
+
+;;; show function arglist or variable docstring in echo area
 (use-package eldoc :config (add-hook 'emacs-lisp-mode-hook 'eldoc-mode))
 
+; Possible SECURITY risk. We use this for color printing at the REPL.
+(setq slime-enable-evaluate-in-emacs t)
 
 ;; the following was written by Helmut
 
@@ -84,18 +114,3 @@
     (with-temp-buffer
       (byte-compile-file filename t))))
 
-(defvar elisp-extra-keys
-  '(((kbd "C-c d") 'elisp-disassemble)
-    ((kbd "C-c m") 'elisp-macroexpand)
-    ((kbd "C-c M") 'elisp-macroexpand-all)
-    ((kbd "C-c C-c") 'compile-defun)
-    ((kbd "C-c C-k") 'elisp-bytecompile-and-load)
-    ((kbd "C-c C-l") 'load-file)
-    ((kbd "C-c p") 'pp-eval-last-sexp)
-    ((kbd "M-.") 'elisp-find-definition)
-    ((kbd "M-,") 'elisp-pop-found-function)))
-
-(dolist (binding elisp-extra-keys)
-  (let ((key (eval (car binding))) (val (eval (cadr binding))))
-    (define-key emacs-lisp-mode-map key val)
-    (define-key lisp-interaction-mode-map key val)))

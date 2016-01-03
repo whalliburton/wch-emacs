@@ -11,7 +11,7 @@
 	path = site-lisp/tomatinho
 	url = https://github.com/konr/tomatinho.git
 [submodule "site-lisp/dash.el"]
-	path = site-lisp/dash.el
+	path = site-lisp/dash
 	url = git@github.com:magnars/dash.el.git
 [submodule "site-lisp/mic-paren"]
 	path = site-lisp/mic-paren
@@ -25,3 +25,6 @@
 [submodule "site-lisp/scss-mode"]
 	path = site-lisp/scss-mode
 	url = git@github.com:antonj/scss-mode.git
+[submodule "site-lisp/helm-slime"]
+	path = site-lisp/helm-slime
+	url = git@github.com:emacs-helm/helm-slime.git
