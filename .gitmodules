@@ -13,3 +13,12 @@
 [submodule "site-lisp/dash.el"]
 	path = site-lisp/dash.el
 	url = git@github.com:magnars/dash.el.git
+[submodule "site-lisp/mic-paren"]
+	path = site-lisp/mic-paren
+	url = git@github.com:emacsmirror/mic-paren.git
+[submodule "site-lisp/helm"]
+	path = site-lisp/helm
+	url = https://github.com/emacs-helm/helm.git
+[submodule "site-lisp/helm-ls-git"]
+	path = site-lisp/helm-ls-git
+	url = git@github.com:emacs-helm/helm-ls-git.git
