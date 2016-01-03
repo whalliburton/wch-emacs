@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -f `find . -type f | grep "~"`
+rmdir `find . | grep "~"` 2> /dev/null
+
