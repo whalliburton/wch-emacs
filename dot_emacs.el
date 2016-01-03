@@ -20,6 +20,7 @@
    "magit"
    "fonts"
    "keybindings"
+   "ssh-keys"
    "last"
 
           ))
@@ -40,8 +41,6 @@
 ;;           "editing"
 ;;           "journal"
 ;;           "wiki"
-;;           "terminal"
-;;           "ssh-keys"
 ;;           "multiple-cursors"
 ;;           "packages"
 ;;           "org"
