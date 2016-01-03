@@ -7,9 +7,11 @@
  '(
 
    "first"
+   "display"
    "colors"
    "programming"
    "indentation"
+   "keybindings"
    "last"
 
           ))

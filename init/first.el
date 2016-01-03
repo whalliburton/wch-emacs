@@ -49,11 +49,6 @@
 (require 'use-package)
 
 
-;; We prefer to get right to work. You can view the spash page with
-;; (display-spash-screen)
-
-(setq inhibit-splash-screen t)
-
 ;; Save numeric backup files.
 ;;
 ;; Control use of version numbers for backup files.
@@ -62,6 +57,7 @@
 ;; The value `never' means do not make them.
 
 (setq version-control t)
+
 
 ;; Save backup files in the ".~" subdirectory.
 ;;
@@ -92,8 +88,11 @@
 (setq delete-old-versions 'leave)
 
 
+;; Enable some disabled, by default, functions.
 
-
+(put 'erase-buffer 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
 
 
 
