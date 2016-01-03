@@ -7,3 +7,5 @@
 ;; Show a vertical line (column highlighting) mode with (vline-mode).
 (use-package vline)
 
+;; major mode for editing SCSS files
+(use-package scss-mode)
