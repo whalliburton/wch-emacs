@@ -1,8 +1,8 @@
 ;; helm.el
 
-;; (require 'helm)
-;; (require 'helm-config)
-;; (require 'helm-ls-git)
+(use-package helm)
+(use-package helm-config)
+(use-package helm-ls-git)
 
-;; (global-set-key (kbd "M-x") 'helm-M-x)
-;; (global-unset-key (kbd "C-x c"))
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-unset-key (kbd "C-x c"))

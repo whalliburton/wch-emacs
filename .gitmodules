@@ -28,3 +28,6 @@
 [submodule "site-lisp/helm-slime"]
 	path = site-lisp/helm-slime
 	url = git@github.com:emacs-helm/helm-slime.git
+[submodule "site-lisp/emacs-async"]
+	path = site-lisp/emacs-async
+	url = https://github.com/jwiegley/emacs-async.git

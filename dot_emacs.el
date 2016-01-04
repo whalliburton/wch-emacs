@@ -22,6 +22,7 @@
    "keybindings"
    "ssh-keys"
    "org"
+   "helm"
    "last"
 
           ))

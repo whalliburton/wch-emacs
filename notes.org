@@ -2,3 +2,9 @@
 ** TODO keybind a shortcut for commenting the current line
 * to evaluate
 ** igrep
+* helm
+  ;; - `find-file'(C-x C-f)           =>`helm-find-files'
+  ;; - `occur'(M-s o)                 =>`helm-occur'
+  ;; - `list-buffers'(C-x C-b)        =>`helm-buffers-list'
+  ;; - `completion-at-point'(M-tab)   =>`helm-lisp-completion-at-point'[1]
+  ;; - `dabbrev-expand'(M-/)          =>`helm-dabbrev'
