@@ -2,6 +2,7 @@
 
 (use-package dash)
 (use-package magit)
+(use-package evil-magit)
 
 (setf magit-diff-highlight-hunk-body t)
 
