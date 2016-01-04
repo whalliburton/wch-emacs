@@ -23,9 +23,10 @@
    "ssh-keys"
    "org"
    "helm"
+   "packages"
    "last"
 
-          ))
+         ))
 
 ;;           "registers"
 ;;           "xterm"
@@ -45,5 +46,4 @@
 ;;           "packages"
 
 ;;           "helm"
-
 
