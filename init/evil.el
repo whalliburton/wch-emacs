@@ -24,6 +24,7 @@
    (slime-mode (slime-edit-definition name))
    (t (elisp-find-definition name))))
 
+;; only works on X11 terminal
 (setq evil-replace-state-cursor '("red" box))
 
 (push 'global-git-commit-mode evil-insert-state-modes)

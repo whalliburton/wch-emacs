@@ -95,20 +95,3 @@
 (put 'downcase-region 'disabled nil)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(view-buffer "*Messages*")

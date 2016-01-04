@@ -26,7 +26,9 @@
          "C-x C-d" ; list-directory - dired is better
          "C-x C-z" ; suspend-frame - what! leave emacs!
          "C-z"
+         "C-x c" ; helm
   ))
+
 
 (mapcar (lambda (el)
         (destructuring-bind (key command) el
@@ -52,7 +54,6 @@
         ("C-x C-\\" goto-last-change)
 
         ;; grep
-        ("C-c C-v" lisp-grep-next)
         ("C-c g" grep)
 
         ;; search
@@ -66,7 +67,7 @@
         ("C-c c" chrome-here)
 
         ;; magit
-        ("C-c i" magit-status)
+        ("C-c i" ,(lambda () (interactive) (magit-status) (delete-other-windows)))
 
         ("M-/" hippie-expand)
 
@@ -84,8 +85,6 @@
         ("C-c C-a" switch-to-repl)
         ("C-c a" switch-to-dribble-file)
         ("C-c m" slime-macroexpand-1-inplace-downcase)
-        ("C-c f" lisp-grep)
-        ("C-c C-f" lisp-find-file)
         ("C-c ," slime-selector)
         ("C-c C-q" slime-eval-print-last-expression)
         ("C-x C-a" copy-symbol)
@@ -164,11 +163,20 @@
 
         ("C-x C-g" toggle-truncate-lines)
 
-        ("C-x p" lisp-work)
-
         ("C-x x" helm-browse-project)
+        ("C-c h" helm-command-prefix)
 
-        ("C-c h" helm-command-prefix)))
+        ("M-x" 'helm-M-x)
+        ("C-x C-f" 'helm-find-files)
+        ("C-x C-b" 'helm-buffers-list)
+        ("<backtab>" 'helm-lisp-completion-at-point)
+
+
+
+
+
+        ))
+
 (defun clear-keys-from-map (map keys)
   (dolist (key keys)
     (define-key map (read-kbd-macro key) nil)))
