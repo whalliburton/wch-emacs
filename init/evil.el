@@ -16,6 +16,9 @@
 
 (define-key evil-normal-state-map (read-kbd-macro "M-.") 'select-edit-definition)
 
+;; allow for moving past the last paren in the line
+(setq evil-move-cursor-back nil)
+
 (defun select-edit-definition (&optional name where)
    (interactive (list (or (and (not current-prefix-arg)
                               (slime-symbol-at-point))
