@@ -2,26 +2,30 @@
 
 (use-package keys)
 
+;; A simple way to manage personal keybindings
+(use-package bind-key)
+
 (defvar elisp-extra-keys
-  '(((kbd "C-c d") 'elisp-disassemble)
-    ((kbd "C-c m") 'elisp-macroexpand)
-    ((kbd "C-c M") 'elisp-macroexpand-all)
-    ((kbd "C-c C-c") 'compile-defun)
-    ((kbd "C-c C-k") 'elisp-bytecompile-and-load)
-    ((kbd "C-c C-l") 'load-file)
-    ((kbd "C-c p") 'pp-eval-last-sexp)
-    ((kbd "M-.") 'elisp-find-definition)
-    ((kbd "M-,") 'elisp-pop-found-function)))
+  '(("C-c d" elisp-disassemble)
+    ("C-c m" elisp-macroexpand)
+    ("C-c M" elisp-macroexpand-all)
+    ("C-c C-c" compile-defun)
+    ("C-c C-k" elisp-bytecompile-and-load)
+    ("C-c C-l" load-file)
+    ("C-c p" pp-eval-last-sexp)
+    ("M-." elisp-find-definition)
+    ("M-," elisp-pop-found-function)))
 
 (dolist (binding elisp-extra-keys)
-  (let ((key (eval (car binding))) (val (eval (cadr binding))))
-    (define-key emacs-lisp-mode-map key val)
-    (define-key lisp-interaction-mode-map key val)))
+  (let ((key (car binding)) (val (cadr binding)))
+    (bind-key key val emacs-lisp-mode-map)
+    (bind-key key val lisp-interaction-mode-map)))
 
-(mapc (lambda (key) (global-unset-key (read-kbd-macro key)))
+(mapc (lambda (key) (unbind-key key))
        `("C-x v"   ; vc - magit for life!
          "C-x C-d" ; list-directory - dired is better
          "C-x C-z" ; suspend-frame - what! leave emacs!
+         "C-z"
   ))
 
 (mapcar (lambda (el)
@@ -31,11 +35,8 @@
                              (first key)
                            (second key))
                        key)))
-            (global-set-key (read-kbd-macro key) command))))
+            (bind-key key command))))
       `(
-        ;; remove suspend-frame
-        ("C-z" ,nil)
-
         ;; movement
         ;; ("<home>" beginning-of-buffer)
         ;; ("<end>" end-of-buffer)
@@ -176,8 +177,8 @@
 
 
 
-;(global-set-key "\C-cp" 'planner-create-task-from-buffer)
-;(global-set-key "\C-cr" 'remember)
+;; (global-set-key "\C-cp" 'planner-create-task-from-buffer)
+;; (global-set-key "\C-cr" 'remember)
 
 ;; (global-set-key "\C-ca" 'agrep)
 
@@ -194,11 +195,6 @@
 
 ;; (define-key w3m-mode-map "\M-[a" 'scroll-down-one-line)
 ;; (define-key w3m-mode-map "\M-[b" 'scroll-up-one-line)
-
-;; (define-key anything-map (kbd "M-O a") 'anything-previous-page)
-;; (define-key anything-map (kbd "M-O b") 'anything-next-page)
-
-;; (global-set-key "\C-ca" 'anything)
 
 ;; (add-hook 'dired-mode-hook
 ;;           (lambda ()
