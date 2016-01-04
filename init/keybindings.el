@@ -3,6 +3,7 @@
 (use-package keys)
 
 ;; A simple way to manage personal keybindings
+;; Use (describe-personal-keybindings) to view settings.
 (use-package bind-key)
 
 (defvar elisp-extra-keys
