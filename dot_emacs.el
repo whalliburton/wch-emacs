@@ -23,6 +23,7 @@
    "ssh-keys"
    "org"
    "helm"
+   "projectile"
    "packages"
    "last"
 

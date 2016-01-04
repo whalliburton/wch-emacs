@@ -95,3 +95,5 @@
 (put 'downcase-region 'disabled nil)
 
 
+(use-package igrep)
+

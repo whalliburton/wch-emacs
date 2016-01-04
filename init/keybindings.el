@@ -153,8 +153,6 @@
         ;; ace jump mode
         ("C-c SPC" ace-jump-mode)
 
-        ("C-x C-b" bs-show)
-
         ("C-c l" org-store-link)
         ("C-c t" org-capture)
         ("C-c d" org-agenda)
@@ -166,10 +164,10 @@
         ("C-x x" helm-browse-project)
         ("C-c h" helm-command-prefix)
 
-        ("M-x" 'helm-M-x)
-        ("C-x C-f" 'helm-find-files)
-        ("C-x C-b" 'helm-buffers-list)
-        ("<backtab>" 'helm-lisp-completion-at-point)
+        ("M-x" helm-M-x)
+        ("C-x C-f" helm-find-files)
+        ("C-x b" helm-buffers-list)
+        ("<backtab>" helm-lisp-completion-at-point)
 
 
 
