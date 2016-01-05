@@ -1,6 +1,10 @@
 ;; evil.el
 
 (use-package evil)
+(use-package evil-paredit
+  :config (add-hook 'paredit-mode-hook 'evil-paredit-mode))
+
+(use-package evil-org)
 
 (defun my-move-key (keymap-from keymap-to key)
   "Moves key binding from one keymap to another, deleting from the old location. "
