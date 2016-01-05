@@ -19,12 +19,13 @@
    "erc"
    "magit"
    "fonts"
-   "keybindings"
    "ssh-keys"
    "org"
    "helm"
    "projectile"
    "packages"
+   "markdown"
+   "keybindings"
    "last"
 
          ))
@@ -47,4 +48,5 @@
 ;;           "packages"
 
 ;;           "helm"
+
 

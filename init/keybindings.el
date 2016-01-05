@@ -171,6 +171,7 @@
         ("<backtab>" helm-lisp-completion-at-point)
         ("M-y" helm-show-kill-ring)
         ("C-c h x" helm-register)
+        ("C-c h g" helm-google-suggest)
 
 
 
