@@ -167,8 +167,11 @@
 
         ("M-x" helm-M-x)
         ("C-x C-f" helm-find-files)
-        ("C-x b" helm-buffers-list)
+        ("C-x b" helm-mini)
         ("<backtab>" helm-lisp-completion-at-point)
+        ("M-y" helm-show-kill-ring)
+        ("C-c h x" helm-register)
+
 
 
 
