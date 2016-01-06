@@ -49,35 +49,9 @@
 (require 'use-package)
 
 
-;; Save numeric backup files.
-;;
-;; Control use of version numbers for backup files.
-;; When t, make numeric backup versions unconditionally.
-;; When nil, make them for files that have some already.
-;; The value `never' means do not make them.
-
-(setq version-control t)
-
-
-;; Save backup files in the ".~" subdirectory.
-;;
-;; Alist of filename patterns and backup directory names.
-;; Each element looks like (REGEXP . DIRECTORY).  Backups of files with
-;; names matching REGEXP will be made in DIRECTORY.  DIRECTORY may be
-;; relative or absolute.  If it is absolute, so that all matching files
-;; are backed up into the same directory, the file names in this
-;; directory will be the full name of the file backed up with all
-;; directory separators changed to `!' to prevent clashes.  This will not
-;; work correctly if your filesystem truncates the resulting name.
-
-;; For the common case of all backups going into one directory, the alist
-;; should contain a single element pairing "." with the appropriate
-;; directory name.
-
-;; If this variable is nil, or it fails to match a filename, the backup
-;; is made in the original file's directory.
-
-(setq backup-directory-alist '(("." . ".~")))
+;; Turn off backup files. We use version control nowadays.
+(setq make-backup-files nil
+      auto-save-dafault nil)
 
 
 ;; Leave all old backups.
@@ -94,6 +68,11 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-
+(use-package bookmark)
 (use-package igrep)
 
+(setq dired-listing-switches "-al")
+
+(use-package dired-x)
+(add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
+(setq dired-omit-files "^\\.$")
