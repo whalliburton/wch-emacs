@@ -50,13 +50,4 @@
 ;;           "helm"
 
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(helm-buffer-directory ((t (:background "black" :foreground "color-32" :weight bold))))
- '(helm-ff-directory ((t (:background "black" :foreground "color-32" :weight bold))))
- '(helm-ff-dotted-directory ((t (:background "black" :foreground "color-27" :weight bold))))
- '(helm-ff-dotted-symlink-directory ((t (:background "black" :foreground "DarkOrange"))))
- '(helm-selection ((t (:background "color-236" :distant-foreground "black")))))
+

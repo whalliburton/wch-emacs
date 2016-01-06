@@ -1,27 +1,34 @@
 ;; modeline.el
 
-(setq default-mode-line-format
-      '("%e"
-        "-"
-        mode-line-mule-info
-        mode-line-modified
-        "  "
-        mode-line-buffer-identification
-        "   "
-        (:eval (system-name))
-        "   "
-        mode-line-position
-        (vc-mode vc-mode)
-        "  "
-        mode-line-modes
-        (which-func-mode
-         ("" which-func-format
-          "--"))
-        global-mode-string
-        "-%-"))
+(use-package evil-mode-line)
 
+(setq
+ evil-mode-line-color
+ '((normal . "black")
+   (insert . "#353535")
+   (replace . "#575735")
+   (operator . "DarkSeaGreen4")
+   (visual . "SteelBlue4")
+   (emacs . "#6c3333")))
+
+(defun short-system-name ()
+  (let* ((name (system-name))
+         (hit (position ?. name)))
+    (or (and hit (subseq name 0 hit)) name)))
+
+(use-package smart-mode-line
+  :init
+  (setq sml/theme 'dark
+        sml/no-confirm-load-theme t
+        sml/shorten-directory t
+        sml/shorten-modes t
+        rm-blacklist '(" ElDoc" " Paredit"))
+  :config
+  (sml/setup))
+
+(setq display-time-day-and-date t
+      display-time-mail-string "")
 (display-time)
-
+(display-battery-mode 1)
 (column-number-mode 1)
-
 (line-number-mode 1)
