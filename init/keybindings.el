@@ -105,8 +105,10 @@
         ("C-c b" find-file-blog)
 
         ;; paredit
+        ("M-h" paredit-forward-barf-sexp)
         (("<M-left>" "ESC <left>") paredit-forward-barf-sexp)
-        (("<M-right>" "ESC <right>") paredit-forward-slurp-sexp)
+        ("M-l" paredit-forward-slurp-sexp)
+        (("<M-right>" "ESC <right>" "M-h") paredit-forward-slurp-sexp)
         ("C-c (" paredit-mode)
 
         ;; erc

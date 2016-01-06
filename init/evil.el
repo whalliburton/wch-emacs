@@ -16,9 +16,8 @@
 (my-move-key evil-motion-state-map evil-normal-state-map (kbd "RET"))
 (my-move-key evil-motion-state-map evil-normal-state-map " ")
 
-(global-set-key (read-kbd-macro "C-x C-s") '(lambda () (interactive) (evil-normal-state) (save-buffer)))
-
 (define-key evil-normal-state-map (read-kbd-macro "M-.") 'select-edit-definition)
+(define-key evil-normal-state-map (read-kbd-macro "TAB") 'select-edit-definition)
 
 ;; allow for moving past the last paren in the line
 (setq evil-move-cursor-back nil)
