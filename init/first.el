@@ -69,6 +69,8 @@
 (put 'downcase-region 'disabled nil)
 
 (use-package bookmark)
+
+
 (use-package igrep)
 
 (setq dired-listing-switches "-al")
@@ -76,3 +78,5 @@
 (use-package dired-x)
 (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
 (setq dired-omit-files "^\\.$")
+
+(setq browse-url-browser-function 'w3m-browse-url)
