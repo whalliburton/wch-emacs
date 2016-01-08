@@ -4,7 +4,9 @@
 ;; We prefer to get right to work. You can view the spash page with
 ;; (display-spash-screen)
 
-(setq inhibit-splash-screen t)
+(setq inhibit-splash-screen t
+      inhibit-startup-message t
+      inhibit-startup-echo-area-message t)
 
 
 ;; Disable the visual bell.
