@@ -10,6 +10,10 @@
 ;; Show a vertical line (column highlighting) mode with (vline-mode).
 (use-package vline)
 
+(use-package auto-complete-config
+  :config
+  (ac-config-default)
+  (setq ac-auto-show-menu nil))
 
 ;;; Whitespace
 
