@@ -151,4 +151,5 @@
           (lambda ()
              (local-set-key "?" 'sldb-var-copy-down-to-repl)))
 
-(define-key slime-repl-mode-map (kbd "<home>") 'beginning-of-buffer)
+;; (define-key slime-repl-mode-map (kbd "<home>") 'beginning-of-buffer)
+
