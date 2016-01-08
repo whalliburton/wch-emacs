@@ -7,7 +7,7 @@
 (use-package bind-key)
 
 (defvar elisp-extra-keys
-  '(("C-c d" elisp-disassemble)
+  '(;("C-c d" elisp-disassemble)
     ("C-c m" elisp-macroexpand)
     ("C-c M" elisp-macroexpand-all)
     ("C-c C-c" compile-defun)
@@ -30,6 +30,8 @@
          "C-x c" ; helm
   ))
 
+
+(bind-key "DEL" 'paredit-backward-delete slime-repl-mode-map)
 
 (mapcar (lambda (el)
         (destructuring-bind (key command) el
@@ -65,7 +67,7 @@
         ("C-c r" query-replace-regexp)
 
         ;; web
-        ("C-c c" chrome-here)
+        ("C-c b" chrome-here)
 
         ;; magit
         ("C-c i" ,(lambda () (interactive) (magit-status) (delete-other-windows)))
@@ -100,9 +102,6 @@
         ;; work stack
         ("C-c x" push-work-stack)
         ("C-c w" show-work-stack)
-
-        ;; blog
-        ("C-c b" find-file-blog)
 
         ;; paredit
         ("M-h" paredit-forward-barf-sexp)
@@ -162,6 +161,8 @@
 ;;        ("C-c d" org-iswitchb)
         ("C-c A" switch-to-open-agenda)
 
+        ("C-c c" calendar)
+
         ("C-x C-g" toggle-truncate-lines)
 
         ("C-x x" helm-browse-project)
@@ -174,8 +175,9 @@
         ("M-y" helm-show-kill-ring)
         ("C-c h x" helm-register)
         ("C-c h g" helm-google-suggest)
+        ("C-c h o" helm-org-agenda-files-headings)
 
-
+        ("C-c f" helm-projectile-grep)
 
 
 
