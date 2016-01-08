@@ -8,6 +8,7 @@
 (use-package helm-projectile)
 (use-package helm-elisp)
 (use-package helm-descbinds)
+(use-package helm-org)
 
 (fset 'woman 'helm-man-woman)
 (fset 'describe-bindings 'helm-descbinds)
