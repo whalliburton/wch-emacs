@@ -35,6 +35,9 @@
 (bind-key "TAB" 'helm-slime-complete slime-repl-mode-map)
 (bind-key "TAB" 'helm-slime-complete slime-mode-map)
 
+(bind-key "j" 'evil-next-line org-agenda-mode-map)
+(bind-key "k" 'evil-previous-line org-agenda-mode-map)
+
 (mapcar (lambda (el)
         (destructuring-bind (key command) el
           (let ((key (if (listp key)
