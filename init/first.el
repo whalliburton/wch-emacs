@@ -88,3 +88,5 @@
       calendar-location-name "Missoula, MT")
 
 (use-package ace-jump-mode)
+
+(use-package sr-speedbar)

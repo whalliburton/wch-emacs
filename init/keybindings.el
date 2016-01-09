@@ -13,9 +13,12 @@
     ("C-c C-c" compile-defun)
     ("C-c C-k" elisp-bytecompile-and-load)
     ("C-c C-l" load-file)
-    ("C-c p" pp-eval-last-sexp)
-    ("M-." elisp-find-definition)
-    ("M-," elisp-pop-found-function)))
+    ("C-c p" pp-eval-last-sexp)))
+
+(use-package elisp-slime-nav
+  :config
+  (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+    (add-hook hook 'elisp-slime-nav-mode)))
 
 (dolist (binding elisp-extra-keys)
   (let ((key (car binding)) (val (cadr binding)))
@@ -98,8 +101,7 @@
         ("C-c C--" decrease-font-size)
         ("C-c C-0" reset-font-size)
 
-        ;; whitespace
-        ("M-SPC" fixup-whitespace)
+        ("M-SPC" sr-speedbar-toggle)
 
         ;; w3m
         ("C-x g" w3m-bookmark-view)
@@ -142,9 +144,6 @@
         ("C-c h o" helm-org-agenda-files-headings)
 
         ("C-c f" helm-projectile-grep)
-
-
-
 
         ))
 
