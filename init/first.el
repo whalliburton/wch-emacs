@@ -86,3 +86,5 @@
 (setq calendar-longitude -114.0177
       calendar-latitude 46.8625
       calendar-location-name "Missoula, MT")
+
+(use-package ace-jump-mode)

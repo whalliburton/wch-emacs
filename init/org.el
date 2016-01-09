@@ -1,6 +1,7 @@
 ;; org.el
 
 (use-package org)
+(use-package org-agenda)
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (setq org-agenda-files (quote ("~/life"))

@@ -38,6 +38,8 @@
 (bind-key "j" 'evil-next-line org-agenda-mode-map)
 (bind-key "k" 'evil-previous-line org-agenda-mode-map)
 
+(bind-key "SPC" 'ace-jump-mode evil-normal-state-map)
+
 (mapcar (lambda (el)
         (destructuring-bind (key command) el
           (let ((key (if (listp key)
@@ -47,37 +49,14 @@
                        key)))
             (bind-key key command))))
       `(
-        ;; movement
-        ;; ("<home>" beginning-of-buffer)
-        ;; ("<end>" end-of-buffer)
-        ("C-c C-o" beginning-of-buffer)
-        ("C-c C-g" end-of-buffer)
-        (("<C-left>"  "M-[ d") backward-word)
-        (("<C-right>" "M-[ c") forward-word)
-;;        (("<C-up>"    "M-[ A") backward-paragraph)
-;;        (("<C-down>"  "M-[ B") forward-paragraph)
-        ("C-c C-l" goto-line)
-        ("C-c p" ,(lambda () (interactive) (scroll-up 10)))
-        ("C-c n" ,(lambda () (interactive) (scroll-down 10)))
-        ("C-x C-\\" goto-last-change)
-
         ;; grep
-        ("C-c g" grep)
-
-        ;; search
-        ("C-s" isearch-forward-regexp)
-        ("C-r" isearch-backward-regexp)
-
-        ;; replace
-        ("C-c r" query-replace-regexp)
+        ("C-c g" igrep)
 
         ;; web
         ("C-c b" chrome-here)
 
         ;; magit
         ("C-c i" ,(lambda () (interactive) (magit-status) (delete-other-windows)))
-
-        ("M-/" hippie-expand)
 
         ;; bookmarks
         ("C-c 7" bm-toggle)
@@ -104,10 +83,6 @@
 
         ("C-c D" dictionary-lookup-definition)
 
-        ;; work stack
-        ("C-c x" push-work-stack)
-        ("C-c w" show-work-stack)
-
         ;; paredit
         ("M-h" paredit-forward-barf-sexp)
         (("<M-left>" "ESC <left>") paredit-forward-barf-sexp)
@@ -118,17 +93,10 @@
         ;; erc
         ("C-c {" erc-track-switch-buffer)
 
-        ;; speach
-        ;;        ("C-c s w" festival-say-word)
-        ;;        ("C-c s r" festival-say-region)
-
         ;; fonts
         ("C-c C-=" increase-font-size)
         ("C-c C--" decrease-font-size)
         ("C-c C-0" reset-font-size)
-
-        ;; imenu
-        ("C-c TAB" imenu) ;; really C-c C-i
 
         ;; whitespace
         ("M-SPC" fixup-whitespace)
@@ -147,18 +115,9 @@
 
         ("C-x t" translate)
 
-        ("C-x j" journal)
-
-        ("C-x w" wiki)
-
-        ("C-c RET" emms)
-
-        ;; marker-visit
-        ("C-c z" marker-visit-next)
-        ("C-c y" marker-visit-prev)
-
         ;; ace jump mode
         ("C-c SPC" ace-jump-mode)
+        ("C-x SPC" ace-jump-mode-pop-mark)
 
         ("C-c l" org-store-link)
         ("C-c t" org-capture)
