@@ -3,7 +3,9 @@
 
 (add-to-list 'load-path "~/emacs/site-lisp")
 
-(mapcar (lambda (name) (load-file (expand-file-name (format "%s/%s.el" "~/emacs/init" name))))
+(byte-recompile-directory "~/emacs/init" 0)
+
+(mapcar (lambda (name) (load-file (expand-file-name (format "%s/%s.elc" "~/emacs/init" name))))
  '(
 
    "first"
