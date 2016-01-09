@@ -80,3 +80,9 @@
 (setq dired-omit-files "^\\.$")
 
 (setq browse-url-browser-function 'w3m-browse-url)
+
+
+;; The epicenter of the world...
+(setq calendar-longitude -114.0177
+      calendar-latitude 46.8625
+      calendar-location-name "Missoula, MT")
