@@ -1,5 +1,6 @@
 ;; programming.el
 
+(use-package slime)
 
 (use-package lisp-helpers)
 
@@ -14,6 +15,12 @@
   :config
   (ac-config-default)
   (setq ac-auto-show-menu nil))
+
+(use-package ac-slime
+  :config
+  (add-hook 'slime-mode-hook 'set-up-slime-ac)
+  (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+  (add-to-list 'ac-modes 'slime-repl-mode))
 
 ;;; Whitespace
 

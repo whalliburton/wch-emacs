@@ -32,6 +32,8 @@
 
 
 (bind-key "DEL" 'paredit-backward-delete slime-repl-mode-map)
+(bind-key "TAB" 'helm-slime-complete slime-repl-mode-map)
+(bind-key "TAB" 'helm-slime-complete slime-mode-map)
 
 (mapcar (lambda (el)
         (destructuring-bind (key command) el

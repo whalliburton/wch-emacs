@@ -17,7 +17,6 @@
 (my-move-key evil-motion-state-map evil-normal-state-map " ")
 
 (define-key evil-normal-state-map (read-kbd-macro "M-.") 'select-edit-definition)
-(define-key evil-normal-state-map (read-kbd-macro "TAB") 'select-edit-definition)
 
 ;; allow for moving past the last paren in the line
 (setq evil-move-cursor-back nil)
