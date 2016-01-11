@@ -18,6 +18,9 @@
 
 (define-key evil-normal-state-map (read-kbd-macro "M-.") 'select-edit-definition)
 
+(add-hook 'evil-insert-state-entry-hook (lambda () (hl-line-mode 1)))
+(add-hook 'evil-insert-state-exit-hook (lambda () (hl-line-mode 0)))
+
 ;; allow for moving past the last paren in the line
 (setq evil-move-cursor-back nil)
 
@@ -36,3 +39,8 @@
 (push 'git-commit-mode evil-insert-state-modes)
 (push 'bs-mode evil-emacs-state-modes)
 (push 'async-bytecomp-package-mode evil-emacs-state-modes)
+
+;; (use-package evil-surround :config (global-evil-surround-mode 1))
+
+(custom-set-faces
+ '(hl-line ((t (:background "grey10")))))
