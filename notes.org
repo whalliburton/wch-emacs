@@ -2,6 +2,8 @@
 ** TODO keybind a shortcut for commenting the current line
 * to evaluate
 ** igrep
+** org-tree-slide
+** command-log-mode
 * helm
   ;; - `find-file'(C-x C-f)           =>`helm-find-files'
   ;; - `occur'(M-s o)                 =>`helm-occur'

@@ -7,9 +7,12 @@
 (setq org-agenda-files (quote ("~/life"))
       org-default-notes-file "~/life/notes.org"
       org-refile-targets (quote ((nil :maxlevel . 9) (org-agenda-files :maxlevel . 9)))
-;;      org-deadline-warning-days 14
-;;      org-agenda-show-all-dates t
+      ;;      org-deadline-warning-days 14
+      ;;      org-agenda-show-all-dates t
+      ;;      org-babel-load-languages '((emacs-lisp . t) (lisp . t) (sh . t))
+
       )
+
 
 ;; TODO study http://doc.norang.ca/org-mode.html
 

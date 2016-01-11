@@ -35,13 +35,14 @@
 
 
 (bind-key "DEL" 'paredit-backward-delete slime-repl-mode-map)
-(bind-key "TAB" 'helm-slime-complete slime-repl-mode-map)
-(bind-key "TAB" 'helm-slime-complete slime-mode-map)
+;; (bind-key "TAB" 'helm-slime-complete slime-repl-mode-map)
+;; (bind-key "TAB" 'helm-slime-complete slime-mode-map)
 
 (bind-key "j" 'evil-next-line org-agenda-mode-map)
 (bind-key "k" 'evil-previous-line org-agenda-mode-map)
 
 (bind-key "SPC" 'ace-jump-mode evil-normal-state-map)
+(bind-key "TAB" 'indent-for-tab-command evil-normal-state-map)
 
 (mapcar (lambda (el)
         (destructuring-bind (key command) el

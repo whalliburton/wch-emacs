@@ -5,7 +5,7 @@
 (setq
  evil-mode-line-color
  '((normal . "black")
-   (insert . "#353535")
+   (insert . "#242424")
    (replace . "#575735")
    (operator . "DarkSeaGreen4")
    (visual . "SteelBlue4")
