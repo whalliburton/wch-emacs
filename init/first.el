@@ -90,3 +90,14 @@
 (use-package ace-jump-mode)
 
 (use-package sr-speedbar)
+
+;; for making screencasts and such
+(use-package command-log-mode)
+
+(defadvice transpose-words
+    (before my/transpose-words)
+  (if (looking-at "$")
+      (backward-word 1)))
+
+(ad-activate 'transpose-words)
+
