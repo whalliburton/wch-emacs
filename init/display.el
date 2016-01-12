@@ -13,7 +13,7 @@
 ;;
 ;; Non-nil means try to flash the frame to represent a bell.
 
-(setq visible-bell nil)
+(setq visible-bell t)
 
 
 ;; Disable the menu bar.
