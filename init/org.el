@@ -2,6 +2,8 @@
 
 (use-package org)
 (use-package org-agenda)
+(use-package ox-publish)
+(use-package ox-html)
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (setq org-agenda-files (quote ("~/life"))
@@ -37,3 +39,44 @@
 
 
 (setq diary-file "~/life/calendar-diary")
+
+
+(setq org-publish-project-alist
+      '(("public-notes"
+         :base-directory "~/life/public"
+         :base-extension "org"
+         :publishing-directory "~/life/public_html/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4             ; Just the default for this project.
+         :auto-preamble t
+         :auto-sitemap t
+         :sitemap-filename "sitemap.org"
+         :sitemap-title "Sitemap")
+        ("public-static"
+         :base-directory "~/life/public"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+         :publishing-directory "~/life/public_html/"
+         :recursive t
+         :publishing-function org-publish-attachment)
+        ("public" :components ("public-notes" "public-static"))
+        ("bss-notes"
+         :base-directory "~/blue-sky-stewardship/public"
+         :base-extension "org"
+         :publishing-directory "~/blue-sky-stewardship/public_html/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4             ; Just the default for this project.
+         :auto-preamble t
+         :sitemap-filename "sitemap.org"
+         :sitemap-title "Sitemap")
+        ("bss-static"
+         :base-directory "~/blue-sky-stewardship/public"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+         :publishing-directory "~/blue-sky-stewardship/public_html/"
+         :recursive t
+         :publishing-function org-publish-attachment)
+        ("bss" :components ("bss-notes" "bss-static"))
+
+
+        ))
