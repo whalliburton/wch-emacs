@@ -1,12 +1,58 @@
 * grin
 ** TODO keybind a shortcut for commenting the current line
-* to evaluate
-** igrep
-** org-tree-slide
-** command-log-mode
 * helm
   ;; - `find-file'(C-x C-f)           =>`helm-find-files'
   ;; - `occur'(M-s o)                 =>`helm-occur'
   ;; - `list-buffers'(C-x C-b)        =>`helm-buffers-list'
   ;; - `completion-at-point'(M-tab)   =>`helm-lisp-completion-at-point'[1]
   ;; - `dabbrev-expand'(M-/)          =>`helm-dabbrev'
+* to evaluate
+  igrep
+  org-tree-slide
+  command-log-mode
+  site-lisp/ac-slime/
+  site-lisp/ace-jump-mode/
+  site-lisp/alert/
+  site-lisp/auto-complete/
+  site-lisp/cask/
+  site-lisp/chronos/
+  site-lisp/clojure-mode/
+  site-lisp/color-identifiers-mode/
+  site-lisp/command-log-mode/
+  site-lisp/company-mode/
+  site-lisp/crux/
+  site-lisp/elisp-slime-nav/
+  site-lisp/elisp/
+  site-lisp/emms/
+  site-lisp/evil-org-mode/
+  site-lisp/evil-paredit/
+  site-lisp/evil-plugins/
+  site-lisp/evil-surround/
+  site-lisp/expand-region.el/
+  site-lisp/guru-mode/
+  site-lisp/helm-chronos/
+  site-lisp/helm-delicious/
+  site-lisp/helm-descbinds/
+  site-lisp/helm-dictionary/
+  site-lisp/helm-firefox/
+  site-lisp/helm-projectile/
+  site-lisp/helm-recoll/
+  site-lisp/helm-w3m/
+  site-lisp/markdown-mode/
+  site-lisp/mode-line-color.el
+  site-lisp/operate-on-number/
+  site-lisp/org-ac/
+  site-lisp/org-tree-slide/
+  site-lisp/pkg-info.el/
+  site-lisp/popup-el/
+  site-lisp/rainbow-delimiters/
+  site-lisp/rich-minority/
+  site-lisp/slime
+  site-lisp/smart-mode-line/
+  site-lisp/smartrep/
+  site-lisp/solarized-emacs/
+  site-lisp/spinner.el/
+  site-lisp/sr-speedbar/
+  site-lisp/wget-log
+  site-lisp/writegood-mode/
+  site-lisp/yascroll-el/
