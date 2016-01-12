@@ -53,6 +53,8 @@
                        key)))
             (bind-key key command))))
       `(
+        ("C-c C-g" end-of-buffer)
+
         ;; grep
         ("C-c g" igrep)
 
@@ -154,6 +156,20 @@
 
 (clear-keys-from-map paredit-mode-map '("<C-left>" "<C-right>"))
 
+(use-package operate-on-number)
+(use-package smartrep)
+(smartrep-define-key global-map "C-c ."
+  '(("+" . apply-operation-to-number-at-point)
+    ("-" . apply-operation-to-number-at-point)
+    ("*" . apply-operation-to-number-at-point)
+    ("/" . apply-operation-to-number-at-point)
+    ("\\" . apply-operation-to-number-at-point)
+    ("^" . apply-operation-to-number-at-point)
+    ("<" . apply-operation-to-number-at-point)
+    (">" . apply-operation-to-number-at-point)
+    ("#" . apply-operation-to-number-at-point)
+    ("%" . apply-operation-to-number-at-point)
+    ("'" . operate-on-number-at-point)))
 
 
 ;; (global-set-key "\C-cp" 'planner-create-task-from-buffer)
