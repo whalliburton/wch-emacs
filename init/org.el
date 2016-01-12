@@ -10,10 +10,11 @@
       ;;      org-deadline-warning-days 14
       ;;      org-agenda-show-all-dates t
       ;;      org-babel-load-languages '((emacs-lisp . t) (lisp . t) (sh . t))
-
+      org-src-fontify-natively t
+      org-src-tab-acts-natively t
       )
 
-
+(org-babel-do-load-languages 'org-babel-load-languages '((lisp . t) (sh . t)))
 ;; TODO study http://doc.norang.ca/org-mode.html
 
 (setq org-capture-templates
