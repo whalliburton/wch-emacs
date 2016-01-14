@@ -9,7 +9,7 @@
    (replace . "#575735")
    (operator . "DarkSeaGreen4")
    (visual . "SteelBlue4")
-   (emacs . "#6c3333")))
+   (emacs . "#000011")))
 
 (defun short-system-name ()
   (let* ((name (system-name))
