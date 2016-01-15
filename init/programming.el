@@ -47,17 +47,18 @@
 
 (use-package slime)
 
-(defvar *package-name-substitutions*
-  '(("LAUNCH" . "☉ ")))
+;; (defvar *package-name-substitutions*
+;;   '(("LAUNCH" . "☉ ")
+;;     ("ACADEMY" . "⚛ ")))
 
-(defun my-slime-lisp-package-prompt-string (fn)
-  (let* ((name (funcall fn))
-         (hit (assoc name *package-name-substitutions*)))
-    (if hit (cdr hit) name)))
+;; (defun my-slime-lisp-package-prompt-string (fn)
+;;   (let* ((name (funcall fn))
+;;          (hit (assoc name *package-name-substitutions*)))
+;;     (if hit (cdr hit) name)))
 
-(my-slime-lisp-package-prompt-string #'slime-lisp-package-prompt-string)
+;; (my-slime-lisp-package-prompt-string #'slime-lisp-package-prompt-string)
 
-(advice-add 'slime-lisp-package-prompt-string :around #'my-slime-lisp-package-prompt-string)
+;; (advice-add 'slime-lisp-package-prompt-string :around #'my-slime-lisp-package-prompt-string)
 
 
 ;;; elisp
