@@ -1,11 +1,26 @@
+* misc
+** TODO Add keybindings
+<kbd>C-c u</kbd> | Open a new buffer containing the contents of URL.
+<kbd>C-c e</kbd> | Eval a bit of Emacs Lisp code and replace it with its result.
+<kbd>C-c s</kbd> | Swap two active windows.
+  CLOCK: [2016-01-12 Tue 11:30]--[2016-01-12 Tue 11:31] =>  0:01
+[2016-01-12 Tue 11:30]
+[[file:~/emacs/study/prelude/README.md::<kbd>C-c%20u</kbd>%20|%20Open%20a%20new%20buffer%20containing%20the%20contents%20of%20URL.][file:~/emacs/study/prelude/README.md::<kbd>C-c u</kbd> | Open a new buffer containing the contents of URL.]]
 * grin
 ** TODO keybind a shortcut for commenting the current line
+   CLOCK: [2016-01-14 Thu 23:23]--[2016-01-14 Thu 23:24] =>  0:01
+   CLOCK: [2016-01-14 Thu 23:13]--[2016-01-14 Thu 23:13] =>  0:00
+   CLOCK: [2016-01-14 Thu 23:11]--[2016-01-14 Thu 23:13] =>  0:02
+   CLOCK: [2016-01-14 Thu 23:09]--[2016-01-14 Thu 23:11] =>  0:02
 * helm
-  ;; - `find-file'(C-x C-f)           =>`helm-find-files'
-  ;; - `occur'(M-s o)                 =>`helm-occur'
-  ;; - `list-buffers'(C-x C-b)        =>`helm-buffers-list'
-  ;; - `completion-at-point'(M-tab)   =>`helm-lisp-completion-at-point'[1]
-  ;; - `dabbrev-expand'(M-/)          =>`helm-dabbrev'
+** TODO evaluate helm function
+   CLOCK: [2016-01-14 Thu 23:13]--[2016-01-14 Thu 23:15] =>  0:02
+   CLOCK: [2016-01-14 Thu 23:13]--[2016-01-14 Thu 23:13] =>  0:00
+   ;; - `find-file'(C-x C-f)           =>`helm-find-files'
+   ;; - `occur'(M-s o)                 =>`helm-occur'
+   ;; - `list-buffers'(C-x C-b)        =>`helm-buffers-list'
+   ;; - `completion-at-point'(M-tab)   =>`helm-lisp-completion-at-point'[1]
+   ;; - `dabbrev-expand'(M-/)          =>`helm-dabbrev'
 * to evaluate
   igrep
   org-tree-slide
@@ -56,3 +71,19 @@
   site-lisp/wget-log
   site-lisp/writegood-mode/
   site-lisp/yascroll-el/
+* completed tasks
+** DONE set up math keybindings
+<kbd>C-c . +</kbd> | Increment integer at point. Default is +1.
+<kbd>C-c . -</kbd> | Decrement integer at point. Default is -1.
+<kbd>C-c . *</kbd> | Multiply integer at point. Default is *2.
+<kbd>C-c . /</kbd> | Divide integer at point. Default is /2.
+<kbd>C-c . \\</kbd> | Modulo integer at point. Default is modulo 2.
+<kbd>C-c . ^</kbd> | Power to the integer at point. Default is ^2.
+<kbd>C-c . <</kbd> | Left-shift integer at point. Default is 1 position to the left.
+<kbd>C-c . ></kbd> | Right-shift integer at point. Default is 1 position to the right.
+<kbd>C-c . #</kbd> | Convert integer at point to specified base. Default is 10.
+<kbd>C-c . %</kbd> | Replace integer at point with another specified integer.
+<kbd>C-c . '</kbd> | Perform arithmetic operations on integer at point. User specifies the operator.
+CLOCK: [2016-01-12 Tue 11:28]--[2016-01-12 Tue 11:29] =>  0:01
+[2016-01-12 Tue 11:28]
+[[file:~/emacs/study/prelude/README.md::<kbd>C-c%20.%20%2B</kbd>%20|%20Increment%20integer%20at%20point.%20Default%20is%20%2B1.][file:~/emacs/study/prelude/README.md::<kbd>C-c . +</kbd> | Increment integer at point. Default is +1.]]
