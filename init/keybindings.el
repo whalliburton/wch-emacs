@@ -148,6 +148,7 @@
 
         ("C-c f" helm-projectile-grep)
 
+        ("C-x w" elfeed)
         ))
 
 (defun clear-keys-from-map (map keys)

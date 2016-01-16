@@ -27,6 +27,7 @@
    "projectile"
    "packages"
    "markdown"
+   "elfeed"
    "keybindings"
    "last"
 
