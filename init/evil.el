@@ -37,9 +37,12 @@
 
 (push 'global-git-commit-mode evil-insert-state-modes)
 (push 'git-commit-mode evil-insert-state-modes)
+(push 'elfeed-search-mode evil-emacs-state-modes)
+(push 'elfeed-show-mode evil-emacs-state-modes)
 (push 'bs-mode evil-emacs-state-modes)
 (push 'async-bytecomp-package-mode evil-emacs-state-modes)
-
+(push 'wl-folder-mode evil-emacs-state-modes)
+(push 'wl-summary-mode evil-emacs-state-modes)
 ;; (use-package evil-surround :config (global-evil-surround-mode 1))
 
 (custom-set-faces
