@@ -4,6 +4,8 @@
 (use-package org-agenda)
 (use-package ox-publish)
 (use-package ox-html)
+(use-package ob-calc)
+(use-package ob-ledger)
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (setq org-agenda-files (quote ("~/life"))
@@ -14,9 +16,9 @@
       ;;      org-babel-load-languages '((emacs-lisp . t) (lisp . t) (sh . t))
       org-src-fontify-natively t
       org-src-tab-acts-natively t
-      )
+      org-clock-idle-time 10)
 
-(org-babel-do-load-languages 'org-babel-load-languages '((lisp . t) (sh . t)))
+(org-babel-do-load-languages 'org-babel-load-languages '((lisp . t) (sh . t) (calc . t) (ditaa . t)))
 ;; TODO study http://doc.norang.ca/org-mode.html
 
 (setq org-capture-templates
@@ -36,6 +38,9 @@
                "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
               ("h" "Habit" entry (file "~/life/refile.org")
                               "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
+
+
+(advice-add 'org-agenda-quit :before 'org-save-all-org-buffers)
 
 
 (setq diary-file "~/life/calendar-diary")
@@ -80,3 +85,55 @@
 
 
         ))
+
+(setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+                          (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))
+      org-todo-keyword-faces
+      '(("TODO" :foreground "red" :weight bold)
+        ("NEXT" :foreground "blue" :weight bold)
+        ("DONE" :foreground "forest green" :weight bold)
+        ("WAITING" :foreground "orange" :weight bold)
+        ("HOLD" :foreground "magenta" :weight bold)
+        ("CANCELLED" :foreground "forest green" :weight bold)
+        ("MEETING" :foreground "forest green" :weight bold)
+        ("PHONE" :foreground "forest green" :weight bold)))
+
+(setq org-todo-state-tags-triggers
+      '(("CANCELLED" ("CANCELLED" . t))
+        ("WAITING" ("WAITING" . t))
+        ("HOLD" ("WAITING") ("HOLD" . t))
+        (done ("WAITING") ("HOLD"))
+        ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
+        ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
+        ("DONE" ("WAITING") ("CANCELLED") ("HOLD"))))
+
+;; Remove empty LOGBOOK drawers on clock out
+(defun bh/remove-empty-drawer-on-clock-out ()
+  (interactive)
+  (save-excursion
+    (beginning-of-line 0)
+    (org-remove-empty-drawer-at "LOGBOOK" (point))))
+
+(add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
+
+;;;; Refile settings
+
+;; Exclude DONE state tasks from refile targets
+(defun bh/verify-refile-target ()
+  "Exclude todo keywords with a done state from refile targets"
+  (not (member (nth 2 (org-heading-components)) org-done-keywords)))
+
+(setq org-refile-target-verify-function 'bh/verify-refile-target)
+
+(setq org-agenda-custom-commands
+      '(("N" "Notes" tags "NOTE"
+         ((org-agenda-overriding-header "Notes")
+          (org-tags-match-list-sublevels t)))
+        ("h" "Habits" tags-todo "STYLE=\"habit\""
+         ((org-agenda-overriding-header "Habits")
+          (org-agenda-sorting-strategy
+           '(todo-state-down effort-up category-keep))))))
+
+;; link abbrevs
+(add-to-list 'org-link-abbrev-alist '("emacswiki" . "http://www.emacswiki.org/cgi-bin/wiki/"))
+(add-to-list 'org-link-abbrev-alist '("google" . "http://www.google.com/search?q="))
