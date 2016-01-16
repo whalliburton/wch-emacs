@@ -68,11 +68,91 @@
 
 (use-package mu4e)
 
-(setq mu4e-maildir "~/Mail/will")
+;; sending mail -- replace USERNAME with your gmail username
+;; also, make sure the gnutls command line utils are installed
+;; package 'gnutls-bin' in Debian/Ubuntu
 
-(setq mu4e-drafts-folder "/[Gmail].Drafts")
-(setq mu4e-sent-folder   "/[Gmail].Sent Mail")
-(setq mu4e-trash-folder  "/[Gmail].Trash")
+(require 'smtpmail)
+(setq message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+      smtpmail-default-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587)
+
+
+(setq mu4e-maildir "~/Mail/")
+
+;; something about ourselves
+(setq
+ user-mail-address "whalliburton@gmail.com"
+ user-full-name  "William Halliburton"
+ smtpmail-auth-credentials '(("smtp.gmail.com" 587 "whalliburton@gmail.com" nil))
+ mu4e-sent-folder   "/whalliburton/[Gmail].Sent Mail"
+ mu4e-drafts-folder "/whalliburton/[Gmail].Drafts"
+ mu4e-trash-folder  "/whalliburton/[Gmail].Trash"
+ mu4e-compose-signature
+ (concat
+  "William Halliburton\n"
+  "Blue Sky Stewardship\n"
+  "120 Hickory St, Suite A\n"
+  "Missoula, MT 59801\n"))
+
+(defvar my-mu4e-account-alist
+  '(
+    ("whalliburton"
+     (user-mail-address  "whalliburton@gmail.com")
+     (user-full-name     "William Halliburton")
+     (mu4e-sent-folder   "/whalliburton/[Gmail].Sent Mail")
+     (mu4e-drafts-folder "/whalliburton/[Gmail].Drafts")
+     (mu4e-trash-folder  "/whalliburton/[Gmail].Trash")
+     smtpmail-auth-credentials '(("smtp.gmail.com" 587 "whalliburton@gmail.com" nil))
+    ;; (mu4e-refile-folder "/private/Archive")
+     )
+    ("will"
+     (user-mail-address  "will@blueskystewardship.org")
+     (user-full-name     "William Halliburton")
+     (mu4e-sent-folder   "/will/[Gmail].Sent Mail")
+     (mu4e-drafts-folder "/will/[Gmail].Drafts")
+     (mu4e-trash-folder  "/will/[Gmail].Trash")
+     smtpmail-auth-credentials '(("smtp.gmail.com" 587 "will@blueskystewardship.org" nil))
+    ;; (mu4e-refile-folder "/private/Archive")
+     )
+   ("info"
+     (user-mail-address  "info@blueskystewardship.org")
+     (user-full-name     "Blue Sky Stewardship")
+     (mu4e-sent-folder   "/info/[Gmail].Sent Mail")
+     (mu4e-drafts-folder "/info/[Gmail].Drafts")
+     (mu4e-trash-folder  "/info/[Gmail].Trash")
+     smtpmail-auth-credentials '(("smtp.gmail.com" 587 "info@blueskystewardship.org" nil))
+    ;; (mu4e-refile-folder "/private/Archive")
+     )))
+
+(setq mu4e-user-mail-address-list
+      (mapcar (lambda (account) (cadr (assq 'user-mail-address account)))
+                            my-mu4e-account-alist))
+
+(defun my-mu4e-set-account ()
+  "Set the account for composing a message."
+  (let* ((account
+          (if mu4e-compose-parent-message
+              (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
+                (string-match "/\\(.*?\\)/" maildir)
+                (match-string 1 maildir))
+            (completing-read (format "Compose with account: (%s) "
+                                     (mapconcat #'(lambda (var) (car var))
+                                                my-mu4e-account-alist "/"))
+                             (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
+                             nil t nil nil (caar my-mu4e-account-alist))))
+         (account-vars (cdr (assoc account my-mu4e-account-alist))))
+    (if account-vars
+        (mapc #'(lambda (var)
+                  (set (car var) (cadr var)))
+              account-vars)
+      (error "No email account found"))))
+
+;; ask for account when composing mail
+(add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
 
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
 (setq mu4e-sent-messages-behavior 'delete)
@@ -95,31 +175,6 @@
 ;; allow for updating mail using 'U' in the main view:
 (setq mu4e-get-mail-command "offlineimap")
 
-;; something about ourselves
-(setq
- user-mail-address "whalliburton@gmail.com"
- user-full-name  "William Halliburton"
- mu4e-compose-signature
- (concat
-  "William Halliburton\n"
-  "Blue Sky Stewardship\n"
-  "120 Hickory St, Suite A\n"
-  "Missoula, MT 59801\n"))
-
-;; sending mail -- replace USERNAME with your gmail username
-;; also, make sure the gnutls command line utils are installed
-;; package 'gnutls-bin' in Debian/Ubuntu
-
-(require 'smtpmail)
-(setq message-send-mail-function 'smtpmail-send-it
-      starttls-use-gnutls t
-      smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
-      smtpmail-auth-credentials
-      '(("smtp.gmail.com" 587 "whalliburton@gmail.com" nil))
-      smtpmail-default-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-service 587)
-
 ;; alternatively, for emacs-24 you can use:
 ;;(setq message-send-mail-function 'smtpmail-send-it
 ;;     smtpmail-stream-type 'starttls
@@ -129,4 +184,8 @@
 
 ;; don't keep message buffers around
 (setq message-kill-buffer-on-exit t)
+
+(setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
+
+;; (setq mu4e-html2text-command "w3m -T text/html")
 
