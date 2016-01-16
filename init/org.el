@@ -1,11 +1,21 @@
 ;; org.el
 
+(add-to-list 'load-path "~/emacs/org-mode/contrib/lisp/")
+
 (use-package org)
 (use-package org-agenda)
 (use-package ox-publish)
 (use-package ox-html)
 (use-package ob-calc)
 (use-package ob-ledger)
+
+(use-package org-wl)
+(use-package org-git-link)
+
+(use-package org-mu4e)
+
+(use-package org-manage
+  :config (setq org-manage-directory-org "~/life"))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (setq org-agenda-files (quote ("~/life"))
@@ -50,14 +60,14 @@
       '(("public-notes"
          :base-directory "~/life/public"
          :base-extension "org"
-         :publishing-directory "~/life/public_html/"
+         :publishing-directory "~/life/public_html/_posts"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4             ; Just the default for this project.
          :auto-preamble t
          :auto-sitemap t
-         :sitemap-filename "sitemap.org"
-         :sitemap-title "Sitemap")
+         :body-only t
+         :html-extension "html")
         ("public-static"
          :base-directory "~/life/public"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
@@ -68,13 +78,13 @@
         ("bss-notes"
          :base-directory "~/blue-sky-stewardship/public"
          :base-extension "org"
-         :publishing-directory "~/blue-sky-stewardship/public_html/"
+         :publishing-directory "~/blue-sky-stewardship/public_html/_posts"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4             ; Just the default for this project.
          :auto-preamble t
-         :sitemap-filename "sitemap.org"
-         :sitemap-title "Sitemap")
+         :body-only t
+         :html-extension "html")
         ("bss-static"
          :base-directory "~/blue-sky-stewardship/public"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
