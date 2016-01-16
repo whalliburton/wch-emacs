@@ -35,15 +35,27 @@
 ;; only works on X11 terminal
 (setq evil-replace-state-cursor '("red" box))
 
-(push 'global-git-commit-mode evil-insert-state-modes)
-(push 'git-commit-mode evil-insert-state-modes)
-(push 'elfeed-search-mode evil-emacs-state-modes)
-(push 'elfeed-show-mode evil-emacs-state-modes)
-(push 'bs-mode evil-emacs-state-modes)
-(push 'async-bytecomp-package-mode evil-emacs-state-modes)
-(push 'wl-folder-mode evil-emacs-state-modes)
-(push 'wl-summary-mode evil-emacs-state-modes)
-;; (use-package evil-surround :config (global-evil-surround-mode 1))
+(mapc (lambda (mode) (evil-set-initial-state mode 'insert))
+      '(git-commit-mode))
+
+(mapc (lambda (mode) (evil-set-initial-state mode 'emacs))
+      '(inferior-emacs-lisp-mode
+        comint-mode
+        shell-mode
+        term-mode
+        jabber-roster-mode
+        jabber-chat-mode
+        cider-repl-mode
+        magit-log-edit-mode
+        magit-commit-mode
+        magit-branch-manager-mode
+        elfeed-search-mode
+        elfeed-show-mode
+        bs-mode
+        async-bytecomp-package-mode
+        wl-folder-mode
+        wl-summary-mode
+        ))
 
 (custom-set-faces
  '(hl-line ((t (:background "grey10")))))
