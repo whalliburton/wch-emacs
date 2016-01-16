@@ -79,7 +79,7 @@
 (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
 (setq dired-omit-files "^\\.$")
 
-(setq browse-url-browser-function 'w3m-browse-url)
+;(setq browse-url-browser-function 'w3m-browse-url)
 
 
 ;; The epicenter of the world...
