@@ -227,21 +227,23 @@
                                      :function
                                      (lambda (msg)
                                        (let* ((all (append (mu4e-message-field msg :to) (mu4e-message-field msg :cc)))
-                                              (count (length all)))
+                                              (count (length all))
+                                              (initials
+                                               (remove-duplicates
+                                                (mapcar
+                                                 (lambda (el)
+                                                   (mapconcat
+                                                    (lambda (word)
+                                                      (format "%c" (aref word 0)))
+                                                    (split-string (car el))
+                                                    ""))
+                                                 (subseq all 0 (min 4 count))))))
                                          (format
                                           "%s%s"
-                                          (mapconcat
-                                           (lambda (el)
-                                             (mapconcat
-                                              (lambda (word)
-                                                (format "%c" (aref word 0)))
-                                              (split-string (car el))
-                                              ""))
-                                           (subseq all 0 (min 4 count))
-                                           ", ")
+                                          (mapconcat 'identity initials ", ")
                                           (if (> count 4)
                                               (format " (%s)" count)
-                                            "")))))))
+                                            ""))))))))
 
 
 (setq mu4e-headers-fields
