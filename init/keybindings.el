@@ -40,6 +40,7 @@
 
 (bind-key "j" 'evil-next-line org-agenda-mode-map)
 (bind-key "k" 'evil-previous-line org-agenda-mode-map)
+(bind-key "C-k" 'paredit-kill evil-insert-state-map)
 
 (bind-key "SPC" 'ace-jump-mode evil-normal-state-map)
 (bind-key "TAB" 'indent-for-tab-command evil-normal-state-map)
