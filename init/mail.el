@@ -17,18 +17,18 @@
 
 ;; Maildir
 
-(setq elmo-maildir-folder-path "~/Mail")
+;; (setq elmo-maildir-folder-path "~/Mail")
 
-;; SMTP
-(setq wl-smtp-connection-type 'starttls
-      wl-smtp-posting-port 587
-      wl-smtp-authenticate-type "plain"
-      wl-smtp-posting-user "whalliburton"
-      wl-smtp-posting-server "smtp.gmail.com"
-      wl-local-domain "gmail.com"
-      wl-message-id-domain "smtp.gmail.com")
+;; ;; SMTP
+;; (setq wl-smtp-connection-type 'starttls
+;;       wl-smtp-posting-port 587
+;;       wl-smtp-authenticate-type "plain"
+;;       wl-smtp-posting-user "whalliburton"
+;;       wl-smtp-posting-server "smtp.gmail.com"
+;;       wl-local-domain "gmail.com"
+;;       wl-message-id-domain "smtp.gmail.com")
 
-(setq wl-from "William Halliburton <whalliburton@gmail.com>"
+;; (setq wl-from "William Halliburton <whalliburton@gmail.com>"
 
 
 ;;       ;;all system folders (draft, trash, spam, etc) are placed in the
@@ -45,25 +45,25 @@
 ;;       ;;for when auto-compleating foldernames
 ;;       wl-default-spec "%"
 
-      )
+;;      )
 
-;; ignore  all fields
-(setq wl-message-ignored-field-list '("^.*:"))
+;; ;; ignore  all fields
+;; (setq wl-message-ignored-field-list '("^.*:"))
 
-;; ..but these five
-(setq wl-message-visible-field-list
-      '("^To:"
-        "^Cc:"
-        "^From:"
-        "^Subject:"
-        "^Date:"))
+;; ;; ..but these five
+;; (setq wl-message-visible-field-list
+;;       '("^To:"
+;;         "^Cc:"
+;;         "^From:"
+;;         "^Subject:"
+;;         "^Date:"))
 
-(setq wl-message-sort-field-list
-      '("^From:"
-        "^Subject:"
-        "^Date:"
-        "^To:"
-        "^Cc:"))
+;; (setq wl-message-sort-field-list
+;;       '("^From:"
+;;         "^Subject:"
+;;         "^Date:"
+;;         "^To:"
+;;         "^Cc:"))
 
 
 (use-package mu4e)
@@ -73,6 +73,7 @@
 ;; package 'gnutls-bin' in Debian/Ubuntu
 
 (require 'smtpmail)
+
 (setq message-send-mail-function 'smtpmail-send-it
       starttls-use-gnutls t
       smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
@@ -87,16 +88,11 @@
 (setq
  user-mail-address "whalliburton@gmail.com"
  user-full-name  "William Halliburton"
- smtpmail-auth-credentials '(("smtp.gmail.com" 587 "whalliburton@gmail.com" nil))
+ smtpmail-smtp-user "whalliburton"
  mu4e-sent-folder   "/whalliburton/[Gmail].Sent Mail"
  mu4e-drafts-folder "/whalliburton/[Gmail].Drafts"
  mu4e-trash-folder  "/whalliburton/[Gmail].Trash"
- mu4e-compose-signature
- (concat
-  "William Halliburton\n"
-  "Blue Sky Stewardship\n"
-  "120 Hickory St, Suite A\n"
-  "Missoula, MT 59801\n"))
+)
 
 (defvar my-mu4e-account-alist
   '(
@@ -106,8 +102,12 @@
      (mu4e-sent-folder   "/whalliburton/[Gmail].Sent Mail")
      (mu4e-drafts-folder "/whalliburton/[Gmail].Drafts")
      (mu4e-trash-folder  "/whalliburton/[Gmail].Trash")
-     smtpmail-auth-credentials '(("smtp.gmail.com" 587 "whalliburton@gmail.com" nil))
-    ;; (mu4e-refile-folder "/private/Archive")
+     (smtpmail-smtp-user "whalliburton")
+     (mu4e-compose-signature
+      (concat
+       "William Halliburton\n"
+       "406-830-5031\n"))
+     ;; (mu4e-refile-folder "/private/Archive")
      )
     ("will"
      (user-mail-address  "will@blueskystewardship.org")
@@ -115,8 +115,15 @@
      (mu4e-sent-folder   "/will/[Gmail].Sent Mail")
      (mu4e-drafts-folder "/will/[Gmail].Drafts")
      (mu4e-trash-folder  "/will/[Gmail].Trash")
-     smtpmail-auth-credentials '(("smtp.gmail.com" 587 "will@blueskystewardship.org" nil))
-    ;; (mu4e-refile-folder "/private/Archive")
+     (smtpmail-smtp-user "will@blueskystewardship.org")
+     (mu4e-compose-signature
+      (concat
+       "William Halliburton\n"
+       "406-830-5031\n"
+       "Blue Sky Stewardship\n"
+       "120 Hickory St, Suite A\n"
+       "Missoula, MT 59801\n"))
+     ;; (mu4e-refile-folder "/private/Archive")
      )
    ("info"
      (user-mail-address  "info@blueskystewardship.org")
@@ -124,8 +131,14 @@
      (mu4e-sent-folder   "/info/[Gmail].Sent Mail")
      (mu4e-drafts-folder "/info/[Gmail].Drafts")
      (mu4e-trash-folder  "/info/[Gmail].Trash")
-     smtpmail-auth-credentials '(("smtp.gmail.com" 587 "info@blueskystewardship.org" nil))
-    ;; (mu4e-refile-folder "/private/Archive")
+     (smtpmail-smtp-user "info@blueskystewardship.org")
+     (mu4e-compose-signature
+      (concat
+       "William Halliburton\n"
+       "Blue Sky Stewardship\n"
+       "120 Hickory St, Suite A\n"
+       "Missoula, MT 59801\n"))
+     ;; (mu4e-refile-folder "/private/Archive")
      )))
 
 (setq mu4e-user-mail-address-list
@@ -185,7 +198,15 @@
 ;; don't keep message buffers around
 (setq message-kill-buffer-on-exit t)
 
+
 (setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
+
+(setq mu4e-headers-skip-duplicates t)
+
+
+(add-to-list 'mu4e-view-actions
+              '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+
 
 ;; (setq mu4e-html2text-command "w3m -T text/html")
 
