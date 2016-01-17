@@ -1,3 +1,6 @@
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
 	url = git@github.com:magit/magit.git
+[submodule "site-lisp/keyfreq"]
+	path = site-lisp/keyfreq
+	url = git@github.com:dacap/keyfreq.git
