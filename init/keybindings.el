@@ -76,8 +76,8 @@
         ("C-c 6" show-old-text)
 
         ;; lisp
-        ("C-c C-a" switch-to-repl)
-        ("C-c a" switch-to-dribble-file)
+        ("C-c r" switch-to-repl)
+        ("C-c R" switch-to-dribble-file)
         ("C-c m" slime-macroexpand-1-inplace-downcase)
         ("C-c ," slime-selector)
         ("C-c C-q" slime-eval-print-last-expression)
