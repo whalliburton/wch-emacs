@@ -181,10 +181,10 @@
 ;; the 'All Mail' folder by pressing ``ma''.
 
 (setq mu4e-maildir-shortcuts
-      '( ("/INBOX"               . ?i)
-         ("/[Gmail].Sent Mail"   . ?s)
-         ("/[Gmail].Trash"       . ?t)
-         ("/[Gmail].All Mail"    . ?a)))
+      '( ("/whalliburton/INBOX"               . ?i)
+         ("/whalliburton/[Gmail].Sent Mail"   . ?s)
+         ("/whalliburton/[Gmail].Trash"       . ?t)
+         ("/whalliburton/[Gmail].All Mail"    . ?a)))
 
 ;; allow for updating mail using 'U' in the main view:
 (setq mu4e-get-mail-command "offlineimap")
