@@ -208,6 +208,50 @@
 (add-to-list 'mu4e-view-actions
               '("ViewInBrowser" . mu4e-action-view-in-browser) t)
 
+(add-to-list 'mu4e-header-info-custom
+             '(:recipnum .
+                         (:name "Number of recipients"  ;; long name, as seen in the message-view
+                                :shortname "R#"           ;; short name, as seen in the headers view
+                                :help "Number of recipients for this message" ;; tooltip
+                                :function
+                                (lambda (msg)
+                                  (format "%d"
+                                          (+ (length (mu4e-message-field msg :to))
+                                              (length (mu4e-message-field msg :cc))))))))
+
+(add-to-list 'mu4e-header-info-custom
+             '(:recipinitials .
+                              (:name "Initials of recipients"  ;; long name, as seen in the message-view
+                                     :shortname "Recipients"           ;; short name, as seen in the headers view
+                                     :help "Initials recipients for this message" ;; tooltip
+                                     :function
+                                     (lambda (msg)
+                                       (let* ((all (append (mu4e-message-field msg :to) (mu4e-message-field msg :cc)))
+                                              (count (length all)))
+                                         (format
+                                          "%s%s"
+                                          (mapconcat
+                                           (lambda (el)
+                                             (mapconcat
+                                              (lambda (word)
+                                                (format "%c" (aref word 0)))
+                                              (split-string (car el))
+                                              ""))
+                                           (subseq all 0 (min 4 count))
+                                           ", ")
+                                          (if (> count 4)
+                                              (format " (%s)" count)
+                                            "")))))))
+
+
+(setq mu4e-headers-fields
+      '((:human-date . 12)
+        (:flags . 6)
+        (:mailing-list . 10)
+        (:from . 22)
+        (:recipinitials . 20)
+        (:subject)))
+
 
 ;; (setq mu4e-html2text-command "w3m -T text/html")
 
