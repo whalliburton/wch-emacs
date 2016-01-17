@@ -14,6 +14,8 @@
 
 (use-package org-mu4e)
 
+(use-package org-elisp-help)
+
 (use-package org-manage
   :config (setq org-manage-directory-org "~/life"))
 
