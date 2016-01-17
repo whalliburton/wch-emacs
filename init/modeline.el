@@ -32,3 +32,12 @@
 (display-battery-mode 1)
 (column-number-mode 1)
 (line-number-mode 1)
+
+(use-package delight)
+
+(delight '((emacs-lisp-mode "ⓔ " lisp)
+           (lisp-interaction-mode "ⓔ " lisp-interaction)
+           (org-mode "ⓞ " org)
+           (slime-repl-mode "Ⓡ " slime-repl)))
+
+(use-package inbox)

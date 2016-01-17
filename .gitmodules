@@ -4,3 +4,6 @@
 [submodule "site-lisp/keyfreq"]
 	path = site-lisp/keyfreq
 	url = git@github.com:dacap/keyfreq.git
+[submodule "site-lisp/delight"]
+	path = site-lisp/delight
+	url = https://github.com/antonio/delight.el
