@@ -130,6 +130,7 @@
         ("C-c d" org-agenda)
 ;;        ("C-c d" org-iswitchb)
         ("C-c A" switch-to-open-agenda)
+        ("C-c n" org-clock-goto)
 
         ("C-c c" calendar)
 
