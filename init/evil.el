@@ -1,8 +1,6 @@
 ;; evil.el
 
 (use-package evil)
-(use-package evil-paredit
-  :config (add-hook 'paredit-mode-hook 'evil-paredit-mode))
 
 (use-package evil-leader)
 (use-package evil-org)
@@ -13,6 +11,11 @@
   (define-key keymap-from key nil))
 
 (evil-mode 1)
+
+(use-package evil-cleverparens-text-objects)
+(use-package evil-cleverparens
+  :config (add-hook 'paredit-mode-hook 'evil-cleverparens-mode))
+
 
 (my-move-key evil-motion-state-map evil-normal-state-map (kbd "RET"))
 (my-move-key evil-motion-state-map evil-normal-state-map " ")
