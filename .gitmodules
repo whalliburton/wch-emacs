@@ -16,3 +16,18 @@
 [submodule "site-lisp/evil-paredit"]
 	path = site-lisp/evil-paredit
 	url = git@github.com:roman/evil-paredit.git
+[submodule "site-lisp/helm-descbinds"]
+	path = site-lisp/helm-descbinds
+	url = git@github.com:emacs-helm/helm-descbinds.git
+[submodule "site-lisp/helm"]
+	path = site-lisp/helm
+	url = git@github.com:emacs-helm/helm.git
+[submodule "site-lisp/org-manage"]
+	path = site-lisp/org-manage
+	url = git@github.com:dmgerman/org-manage.git
+[submodule "site-lisp/org-elisp-help"]
+	path = site-lisp/org-elisp-help
+	url = git@github.com:tarsius/org-elisp-help.git
+[submodule "site-lisp/evil-plugins"]
+	path = site-lisp/evil-plugins
+	url = git@github.com:tarao/evil-plugins.git
