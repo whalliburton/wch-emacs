@@ -37,3 +37,6 @@
 [submodule "site-lisp/ctable"]
 	path = site-lisp/ctable
 	url = git@github.com:kiwanami/emacs-ctable.git
+[submodule "site-lisp/markdown-mode"]
+	path = site-lisp/markdown-mode
+	url = git://jblevins.org/git/markdown-mode.git
