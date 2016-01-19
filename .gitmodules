@@ -34,3 +34,6 @@
 [submodule "site-lisp/evil-leader"]
 	path = site-lisp/evil-leader
 	url = git@github.com:cofi/evil-leader.git
+[submodule "site-lisp/ctable"]
+	path = site-lisp/ctable
+	url = git@github.com:kiwanami/emacs-ctable.git
