@@ -40,3 +40,6 @@
 [submodule "site-lisp/markdown-mode"]
 	path = site-lisp/markdown-mode
 	url = git://jblevins.org/git/markdown-mode.git
+[submodule "site-lisp/smartrep"]
+	path = site-lisp/smartrep
+	url = git@github.com:myuhe/smartrep.el.git
