@@ -4,6 +4,7 @@
 (use-package evil-paredit
   :config (add-hook 'paredit-mode-hook 'evil-paredit-mode))
 
+(use-package evil-leader)
 (use-package evil-org)
 
 (defun my-move-key (keymap-from keymap-to key)
