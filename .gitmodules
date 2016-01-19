@@ -31,3 +31,6 @@
 [submodule "site-lisp/evil-plugins"]
 	path = site-lisp/evil-plugins
 	url = git@github.com:tarao/evil-plugins.git
+[submodule "site-lisp/evil-leader"]
+	path = site-lisp/evil-leader
+	url = git@github.com:cofi/evil-leader.git
