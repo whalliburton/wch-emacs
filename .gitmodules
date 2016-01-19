@@ -7,3 +7,12 @@
 [submodule "site-lisp/delight"]
 	path = site-lisp/delight
 	url = https://github.com/antonio/delight.el
+[submodule "site-lisp/helm-projectile"]
+	path = site-lisp/helm-projectile
+	url = git@github.com:bbatsov/helm-projectile.git
+[submodule "site-lisp/evil-org-mode"]
+	path = site-lisp/evil-org-mode
+	url = git@github.com:edwtjo/evil-org-mode.git
+[submodule "site-lisp/evil-paredit"]
+	path = site-lisp/evil-paredit
+	url = git@github.com:roman/evil-paredit.git
