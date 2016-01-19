@@ -2,7 +2,7 @@
 
 (use-package elfeed)
 (use-package elfeed-org
-  :config (setq rmh-elfeed-org-files '("~/life/elfeed.org")))
+  :config (setq rmh-elfeed-org-files '("~/life/rss-feeds.org")))
 
 ;; (use-package elfeed-web)
 
