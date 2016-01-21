@@ -52,3 +52,6 @@
 [submodule "site-lisp/smartparens"]
 	path = site-lisp/smartparens
 	url = git@github.com:Fuco1/smartparens.git
+[submodule "site-lisp/helm-mu"]
+	path = site-lisp/helm-mu
+	url = git@github.com:emacs-helm/helm-mu.git

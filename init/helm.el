@@ -9,6 +9,7 @@
 (use-package helm-elisp)
 (use-package helm-descbinds)
 (use-package helm-org)
+(use-package helm-mu)
 
 (fset 'woman 'helm-man-woman)
 (fset 'describe-bindings 'helm-descbinds)
