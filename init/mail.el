@@ -90,32 +90,29 @@
  user-mail-address "whalliburton@gmail.com"
  user-full-name  "William Halliburton"
  smtpmail-smtp-user "whalliburton"
- mu4e-sent-folder   "/whalliburton/[Gmail].Sent Mail"
- mu4e-drafts-folder "/whalliburton/[Gmail].Drafts"
- mu4e-trash-folder  "/whalliburton/[Gmail].Trash"
-)
+ mu4e-sent-folder   "/whalliburton/sent"
+ mu4e-drafts-folder "/whalliburton/drafts"
+ mu4e-trash-folder  "/whalliburton/trash")
 
 (defvar my-mu4e-account-alist
   '(
     ("whalliburton"
      (user-mail-address  "whalliburton@gmail.com")
      (user-full-name     "William Halliburton")
-     (mu4e-sent-folder   "/whalliburton/[Gmail].Sent Mail")
-     (mu4e-drafts-folder "/whalliburton/[Gmail].Drafts")
-     (mu4e-trash-folder  "/whalliburton/[Gmail].Trash")
+     (mu4e-sent-folder   "/whalliburton/sent")
+     (mu4e-drafts-folder "/whalliburton/drafts")
+     (mu4e-trash-folder  "/whalliburton/trash")
      (smtpmail-smtp-user "whalliburton")
      (mu4e-compose-signature
       (concat
        "William Halliburton\n"
-       "406-830-5031\n"))
-     ;; (mu4e-refile-folder "/private/Archive")
-     )
+       "406-830-5031\n")))
     ("will"
      (user-mail-address  "will@blueskystewardship.org")
      (user-full-name     "William Halliburton")
-     (mu4e-sent-folder   "/will/[Gmail].Sent Mail")
-     (mu4e-drafts-folder "/will/[Gmail].Drafts")
-     (mu4e-trash-folder  "/will/[Gmail].Trash")
+     (mu4e-sent-folder   "/will/sent")
+     (mu4e-drafts-folder "/will/drafts")
+     (mu4e-trash-folder  "/will/trash")
      (smtpmail-smtp-user "will@blueskystewardship.org")
      (mu4e-compose-signature
       (concat
@@ -123,24 +120,30 @@
        "406-830-5031\n"
        "Blue Sky Stewardship\n"
        "120 Hickory St, Suite A\n"
-       "Missoula, MT 59801\n"))
-     ;; (mu4e-refile-folder "/private/Archive")
-     )
+       "Missoula, MT 59801\n")))
    ("info"
      (user-mail-address  "info@blueskystewardship.org")
      (user-full-name     "Blue Sky Stewardship")
-     (mu4e-sent-folder   "/info/[Gmail].Sent Mail")
-     (mu4e-drafts-folder "/info/[Gmail].Drafts")
-     (mu4e-trash-folder  "/info/[Gmail].Trash")
+     (mu4e-sent-folder   "/info/sent")
+     (mu4e-drafts-folder "/info/drafts")
+     (mu4e-trash-folder  "/info/trash")
      (smtpmail-smtp-user "info@blueskystewardship.org")
      (mu4e-compose-signature
       (concat
        "William Halliburton\n"
        "Blue Sky Stewardship\n"
        "120 Hickory St, Suite A\n"
-       "Missoula, MT 59801\n"))
-     ;; (mu4e-refile-folder "/private/Archive")
-     )))
+       "Missoula, MT 59801\n")))))
+
+(setq mu4e-refile-folder
+      (lambda (msg)
+        (cond
+         ((mu4e-message-contact-field-matches msg :to "whalliburton@gmail.com") "/whalliburton/archive")
+         ((mu4e-message-contact-field-matches msg :to "will@blueskystewardship.org") "/will/archive")
+         ((mu4e-message-contact-field-matches msg :to "info@blueskystewardship.org") "/info/archive")
+         ;; everything else goes to /archive
+         ;; important to have a catch-all at the end!
+         (t  "/whalliburton/archive"))))
 
 (setq mu4e-user-mail-address-list
       (mapcar (lambda (account) (cadr (assq 'user-mail-address account)))
