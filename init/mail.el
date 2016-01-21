@@ -1,4 +1,4 @@
-;; mail.el
+
 
 ;; wanderlust
 
@@ -271,6 +271,10 @@
 (evil-make-overriding-map mu4e-view-mode-map 'normal t)
 (evil-make-overriding-map mu4e-main-mode-map 'normal t)
 (evil-make-overriding-map mu4e-headers-mode-map 'normal t)
+
+(evil-define-key 'normal mu4e-view-mode-map (read-kbd-macro "C-M-j") 'mu4e~view-open-attach-from-binding)
+
+
 
 (evil-add-hjkl-bindings mu4e-view-mode-map 'normal
   "j" 'mu4e-view-headers-next
