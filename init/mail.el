@@ -1,4 +1,4 @@
-
+;; mail.el
 
 ;; wanderlust
 
@@ -117,10 +117,10 @@
      (mu4e-compose-signature
       (concat
        "William Halliburton\n"
-       "406-830-5031\n"
        "Blue Sky Stewardship\n"
-       "120 Hickory St, Suite A\n"
-       "Missoula, MT 59801\n")))
+       "120 Hickory St. Missoula, MT 59801\n"
+       "406-830-5031\n"
+       "www.blueskystewardship.org\n")))
    ("info"
      (user-mail-address  "info@blueskystewardship.org")
      (user-full-name     "Blue Sky Stewardship")
@@ -132,18 +132,19 @@
       (concat
        "William Halliburton\n"
        "Blue Sky Stewardship\n"
-       "120 Hickory St, Suite A\n"
-       "Missoula, MT 59801\n")))))
+       "120 Hickory St. Missoula, MT 59801\n"
+       "Missoula, MT 59801\n"
+       "www.blueskystewardship.org\n")))))
 
 (setq mu4e-refile-folder
       (lambda (msg)
         (cond
-         ((mu4e-message-contact-field-matches msg :to "whalliburton@gmail.com") "/whalliburton/archive")
-         ((mu4e-message-contact-field-matches msg :to "will@blueskystewardship.org") "/will/archive")
-         ((mu4e-message-contact-field-matches msg :to "info@blueskystewardship.org") "/info/archive")
-         ;; everything else goes to /archive
+         ((mu4e-message-contact-field-matches msg :to "whalliburton@gmail.com") "/whalliburton/all")
+         ((mu4e-message-contact-field-matches msg :to "will@blueskystewardship.org") "/will/all")
+         ((mu4e-message-contact-field-matches msg :to "info@blueskystewardship.org") "/info/all")
+         ;; everything else goes to /all
          ;; important to have a catch-all at the end!
-         (t  "/whalliburton/archive"))))
+         (t  "/whalliburton/all"))))
 
 (setq mu4e-user-mail-address-list
       (mapcar (lambda (account) (cadr (assq 'user-mail-address account)))
@@ -184,10 +185,10 @@
 ;; the 'All Mail' folder by pressing ``ma''.
 
 (setq mu4e-maildir-shortcuts
-      '( ("/whalliburton/INBOX"               . ?i)
-         ("/whalliburton/[Gmail].Sent Mail"   . ?s)
-         ("/whalliburton/[Gmail].Trash"       . ?t)
-         ("/whalliburton/[Gmail].All Mail"    . ?a)))
+      '( ("/whalliburton/all"               . ?a)
+         ("/whalliburton/sent"   . ?s)
+         ("/whalliburton/trash"       . ?t)
+         ("/whalliburton/drafts"    . ?d)))
 
 ;; allow for updating mail using 'U' in the main view:
 (setq mu4e-get-mail-command "offlineimap")
