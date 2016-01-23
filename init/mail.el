@@ -67,7 +67,8 @@
 
 
 (use-package mu4e
-  :config (setq mu4e-use-fancy-chars nil))
+  :config (setq mu4e-use-fancy-chars nil
+                mu4e-headers-full-search nil))
 
 ;; sending mail -- replace USERNAME with your gmail username
 ;; also, make sure the gnutls command line utils are installed
