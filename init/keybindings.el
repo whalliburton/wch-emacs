@@ -143,7 +143,7 @@
         ("M-x" helm-M-x)
         ("C-x C-f" helm-find-files)
         ("C-x b" helm-mini)
-        ("<backtab>" helm-lisp-completion-at-point)
+        ("<backtab>" wch-lisp-completion-at-point)
         ("M-y" helm-show-kill-ring)
         ("C-c h x" helm-register)
         ("C-c h g" helm-google-suggest)
@@ -153,6 +153,12 @@
 
         ("C-x w" elfeed)
         ))
+
+(defun wch-lisp-completion-at-point ()
+  (interactive)
+  (cond
+   (slime-mode (helm-slime-complete))
+   (t (helm-lisp-completion-at-point))))
 
 (defun clear-keys-from-map (map keys)
   (dolist (key keys)
