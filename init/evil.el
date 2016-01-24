@@ -59,6 +59,7 @@
         async-bytecomp-package-mode
         wl-folder-mode
         wl-summary-mode
+        slime-popup-buffer-mode  ;; better to just enable the 'q' for quit in normal mode
         ))
 
 (custom-set-faces
