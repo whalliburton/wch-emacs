@@ -30,6 +30,7 @@
                                            (:background ,colour)))))))))
 
 (add-hook 'html-mode-hook 'hexcolour-add-to-font-lock)
+(add-hook 'scss-mode-hook 'hexcolour-add-to-font-lock)
 
 
 
