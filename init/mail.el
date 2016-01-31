@@ -302,3 +302,19 @@
   "J" 'mu4e~headers-jump-to-maildir
   "j" 'evil-next-line
   "RET" 'mu4e-view-message)
+
+
+;; ;; gets the string-list of contacts from hash-table that
+;; ;; mu4e maintains
+;; (setq mu4e~cands (hash-table-keys mu4e~contacts))
+
+;; ;; setup helm
+;; (setq cand-helm-source
+;;       '((name . "HELM at the Emacs")
+;;         (candidates . mu4e~cands)
+;;         (action . (lambda (candidate)
+;;                     (message "%s" candidate)))))
+
+;; ;; then simple call helm complete
+;; (helm :sources '(cand-helm-source))
+

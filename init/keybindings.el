@@ -45,6 +45,7 @@
 (bind-key "SPC" 'ace-jump-mode evil-normal-state-map)
 (bind-key "TAB" 'indent-for-tab-command evil-normal-state-map)
 (bind-key "x" 'evil-delete-char evil-normal-state-map)
+(bind-key "d" 'evil-delete evil-normal-state-map)
 
 (mapcar (lambda (el)
         (destructuring-bind (key command) el
