@@ -29,6 +29,7 @@
    "markdown"
    "mail"
    "elfeed"
+   "ledger"
    "keybindings"
    "last"
 
