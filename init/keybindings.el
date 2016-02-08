@@ -153,6 +153,8 @@
         ("C-c f" helm-projectile-grep)
 
         ("C-x w" elfeed)
+
+        ("C-c w" fixup-whitespace)
         ))
 
 (defun wch-lisp-completion-at-point ()

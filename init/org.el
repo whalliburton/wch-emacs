@@ -30,7 +30,7 @@
       org-src-tab-acts-natively t
       org-clock-idle-time 10)
 
-(org-babel-do-load-languages 'org-babel-load-languages '((lisp . t) (sh . t) (calc . t) (ditaa . t)))
+(org-babel-do-load-languages 'org-babel-load-languages '((lisp . t) (sh . t) (calc . t) (ditaa . t) (ledger . t)))
 ;; TODO study http://doc.norang.ca/org-mode.html
 
 (setq org-capture-templates
