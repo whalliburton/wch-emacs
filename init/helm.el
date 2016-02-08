@@ -24,3 +24,12 @@
  '(helm-ff-dotted-directory ((t (:background "black" :foreground "color-27" :weight bold))))
  '(helm-ff-dotted-symlink-directory ((t (:background "black" :foreground "DarkOrange"))))
  '(helm-selection ((t (:background "color-236" :distant-foreground "black")))))
+
+(setq helm-source-mu-contacts
+  (helm-build-in-buffer-source "Search contacts with mu"
+    :data #'helm-mu-contacts-init
+    :filtered-candidate-transformer #'helm-mu-contacts-transformer
+    :fuzzy-match nil
+    :action '(("Compose email addressed to this contact" . helm-mu-compose-mail)
+              ("Get the emails from/to given contacts" . helm-mu-action-get-contact-emails)
+              ("Copy contact to point" . insert))))
