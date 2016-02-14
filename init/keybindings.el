@@ -155,6 +155,8 @@
         ("C-x w" elfeed)
 
         ("C-c w" fixup-whitespace)
+
+        ("C-x c" helm-mu-contacts)
         ))
 
 (defun wch-lisp-completion-at-point ()

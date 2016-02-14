@@ -30,6 +30,12 @@
     :data #'helm-mu-contacts-init
     :filtered-candidate-transformer #'helm-mu-contacts-transformer
     :fuzzy-match nil
-    :action '(("Compose email addressed to this contact" . helm-mu-compose-mail)
-              ("Get the emails from/to given contacts" . helm-mu-action-get-contact-emails)
-              ("Copy contact to point" . insert))))
+    :action '(("Copy contact to point" . insert-mu-contact)
+              ("Compose email addressed to this contact" . helm-mu-compose-mail)
+              ("Get the emails from/to given contacts" . helm-mu-action-get-contact-emails))))
+
+(defun insert-mu-contact (arg)
+  (let* ((pos (or (position 9 arg) (position 32 arg))) ; space or tab
+         (email (and pos (subseq arg 0 pos)))
+         (name (and pos (subseq arg pos))))
+    (insert (format "%s <%s>" (string-trim name) (string-trim email)))))
