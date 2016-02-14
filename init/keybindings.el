@@ -59,7 +59,7 @@
         ("C-c C-g" end-of-buffer)
 
         ;; grep
-        ("C-c g" igrep)
+        ("C-c f" igrep)
 
         ;; web
         ("C-c b" chrome-here)
@@ -150,7 +150,7 @@
         ("C-c h g" helm-google-suggest)
         ("C-c h o" helm-org-agenda-files-headings)
 
-        ("C-c f" helm-projectile-grep)
+        ("C-c g" helm-projectile-grep)
 
         ("C-x w" elfeed)
 
