@@ -14,6 +14,9 @@
 (fset 'woman 'helm-man-woman)
 (fset 'describe-bindings 'helm-descbinds)
 
+;;(setq projectile-switch-project-action 'helm-projectile)
+(helm-projectile-on)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
