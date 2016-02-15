@@ -1,74 +1,11 @@
 ;; mail.el
 
-;; wanderlust
-
-(use-package wl)
-(use-package elmo-maildir)
-
-;; ;; IMAP, gmail:
-;; (setq elmo-imap4-default-server "imap.gmail.com"
-;;       elmo-imap4-default-user "whalliburton@gmail.com"
-;;       elmo-imap4-default-authenticate-type 'clear
-;;       elmo-imap4-default-port '993
-;;       elmo-imap4-default-stream-type 'ssl
-
-;;       ;;for non ascii-characters in folder-names
-;;       elmo-imap4-use-modified-utf7 t)
-
-;; Maildir
-
-;; (setq elmo-maildir-folder-path "~/Mail")
-
-;; ;; SMTP
-;; (setq wl-smtp-connection-type 'starttls
-;;       wl-smtp-posting-port 587
-;;       wl-smtp-authenticate-type "plain"
-;;       wl-smtp-posting-user "whalliburton"
-;;       wl-smtp-posting-server "smtp.gmail.com"
-;;       wl-local-domain "gmail.com"
-;;       wl-message-id-domain "smtp.gmail.com")
-
-;; (setq wl-from "William Halliburton <whalliburton@gmail.com>"
-
-
-;;       ;;all system folders (draft, trash, spam, etc) are placed in the
-;;       ;;[Gmail]-folder, except inbox. "%" means it's an IMAP-folder
-;;       wl-default-folder "%inbox"
-;;       wl-draft-folder   "%[Gmail]/Drafts"
-;;       wl-trash-folder   "%[Gmail]/Trash"
-;;       wl-fcc            "%[Gmail]/Sent"
-
-;;       ;; mark sent messages as read (sent messages get sent back to you and
-;;       ;; placed in the folder specified by wl-fcc)
-;;       wl-fcc-force-as-read    t
-
-;;       ;;for when auto-compleating foldernames
-;;       wl-default-spec "%"
-
-;;      )
-
-;; ;; ignore  all fields
-;; (setq wl-message-ignored-field-list '("^.*:"))
-
-;; ;; ..but these five
-;; (setq wl-message-visible-field-list
-;;       '("^To:"
-;;         "^Cc:"
-;;         "^From:"
-;;         "^Subject:"
-;;         "^Date:"))
-
-;; (setq wl-message-sort-field-list
-;;       '("^From:"
-;;         "^Subject:"
-;;         "^Date:"
-;;         "^To:"
-;;         "^Cc:"))
-
-
 (use-package mu4e
   :config (setq mu4e-use-fancy-chars nil
                 mu4e-headers-full-search nil))
+
+
+(use-package mu4e-contrib)
 
 ;; sending mail -- replace USERNAME with your gmail username
 ;; also, make sure the gnutls command line utils are installed
@@ -191,6 +128,10 @@
          ("/whalliburton/trash"       . ?t)
          ("/whalliburton/drafts"    . ?d)))
 
+(add-to-list 'mu4e-bookmarks '("flag:flagged"       "starred"     ?s))
+;;(add-to-list 'mu4e-bookmarks '("size:5M..500M"       "Big messages"     ?b))
+;; (add-to-list 'mu4e-bookmarks '("mime:application/pdf" "Messages with PDFs" ?d))
+
 ;; allow for updating mail using 'U' in the main view:
 (setq mu4e-get-mail-command "offlineimap")
 
@@ -205,7 +146,8 @@
 (setq message-kill-buffer-on-exit t)
 
 
-(setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
+;(setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
+(setq mu4e-html2text-command 'mu4e-shr2text)
 
 (setq mu4e-headers-skip-duplicates t)
 
@@ -317,4 +259,12 @@
 
 ;; ;; then simple call helm complete
 ;; (helm :sources '(cand-helm-source))
+
+;; recently added?
+;;
+;; (add-hook 'mu4e-mark-execute-pre-hook
+;;           (lambda (mark msg)
+;;             (cond ((member mark '(refile trash)) (mu4e-action-retag-message msg "-\\Inbox"))
+;;                   ((equal mark 'flag) (mu4e-action-retag-message msg "\\Starred"))
+;;                   ((equal mark 'unflag) (mu4e-action-retag-message msg "-\\Starred")))))
 

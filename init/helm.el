@@ -15,7 +15,6 @@
 (fset 'describe-bindings 'helm-descbinds)
 
 ;;(setq projectile-switch-project-action 'helm-projectile)
-(helm-projectile-on)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
