@@ -104,3 +104,8 @@
 ;;   (keyfreq-mode 1)
 ;;   (keyfreq-autosave-mode 1))
 
+(defun indent-buffer ()
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))
+

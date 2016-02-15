@@ -157,7 +157,8 @@
         ("C-c w" fixup-whitespace)
 
         ("C-x c" helm-mu-contacts)
-        ))
+
+        ("C-c I" indent-buffer)))
 
 (defun wch-lisp-completion-at-point ()
   (interactive)
