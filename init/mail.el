@@ -34,17 +34,6 @@
 
 (defvar my-mu4e-account-alist
   '(
-    ("whalliburton"
-     (user-mail-address  "whalliburton@gmail.com")
-     (user-full-name     "William Halliburton")
-     (mu4e-sent-folder   "/whalliburton/sent")
-     (mu4e-drafts-folder "/whalliburton/drafts")
-     (mu4e-trash-folder  "/whalliburton/trash")
-     (smtpmail-smtp-user "whalliburton")
-     (mu4e-compose-signature
-      (concat
-       "William Halliburton\n"
-       "406-830-5031\n")))
     ("will"
      (user-mail-address  "will@blueskystewardship.org")
      (user-full-name     "William Halliburton")
@@ -59,7 +48,18 @@
        "120 Hickory St. Missoula, MT 59801\n"
        "406-830-5031\n"
        "www.blueskystewardship.org\n")))
-   ("info"
+    ("whalliburton"
+     (user-mail-address  "whalliburton@gmail.com")
+     (user-full-name     "William Halliburton")
+     (mu4e-sent-folder   "/whalliburton/sent")
+     (mu4e-drafts-folder "/whalliburton/drafts")
+     (mu4e-trash-folder  "/whalliburton/trash")
+     (smtpmail-smtp-user "whalliburton")
+     (mu4e-compose-signature
+      (concat
+       "William Halliburton\n"
+       "406-830-5031\n")))
+    ("info"
      (user-mail-address  "info@blueskystewardship.org")
      (user-full-name     "Blue Sky Stewardship")
      (mu4e-sent-folder   "/info/sent")
@@ -146,8 +146,8 @@
 (setq message-kill-buffer-on-exit t)
 
 
-;(setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
-(setq mu4e-html2text-command 'mu4e-shr2text)
+(setq mu4e-html2text-command "html2text -utf8 -nobs -width 72")
+;(setq mu4e-html2text-command 'mu4e-shr2text)
 
 (setq mu4e-headers-skip-duplicates t)
 
@@ -267,4 +267,11 @@
 ;;             (cond ((member mark '(refile trash)) (mu4e-action-retag-message msg "-\\Inbox"))
 ;;                   ((equal mark 'flag) (mu4e-action-retag-message msg "\\Starred"))
 ;;                   ((equal mark 'unflag) (mu4e-action-retag-message msg "-\\Starred")))))
+
+
+
+(setq smtpmail-queue-mail t  ;; start in queuing mode
+      smtpmail-queue-dir   "~/Mail/queue/cur")
+
+
 
