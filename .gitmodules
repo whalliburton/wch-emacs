@@ -55,3 +55,6 @@
 [submodule "site-lisp/helm-mu"]
 	path = site-lisp/helm-mu
 	url = git@github.com:emacs-helm/helm-mu.git
+[submodule "site-lisp/x86-lookup"]
+	path = site-lisp/x86-lookup
+	url = git@github.com:skeeto/x86-lookup.git

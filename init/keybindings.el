@@ -158,6 +158,8 @@
 
         ("C-x c" helm-mu-contacts)
 
+        ("C-c a" mu4e)
+
         ("C-c I" indent-buffer)))
 
 (defun wch-lisp-completion-at-point ()

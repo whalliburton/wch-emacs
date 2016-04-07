@@ -12,7 +12,10 @@
 (use-package org-wl)
 (use-package org-git-link)
 
-(use-package org-mu4e)
+(use-package org-mu4e
+  :config (setq org-mu4e-link-query-in-headers-mode nil))
+
+
 
 (use-package org-elisp-help)
 
@@ -99,7 +102,9 @@
         ))
 
 (setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-                          (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))
+                          (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING")
+                          (sequence "TICKETED(k)")
+                          (sequence "INVITED(i@/!)" "WELCOMED(e)" "TEASED(s)" "ATTENDING(a@/!)" "UPCOMING(u@/!)"))
       org-todo-keyword-faces
       '(("TODO" :foreground "red" :weight bold)
         ("NEXT" :foreground "blue" :weight bold)

@@ -11,7 +11,8 @@
   (interactive)
   (scroll-down 1))
 
-(setq browse-url-generic-program "google-chrome")
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome")
 
 (defun chrome (url &optional new-window)
   (interactive (browse-url-interactive-arg "URL: "))

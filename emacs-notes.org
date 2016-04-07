@@ -1,3 +1,7 @@
+#+TITLE: Notes for Emacs
+#+CATEGORY: notes,tasks
+#+FILETAGS: emacs
+
 * to evaluate for emacs
   igrep
   org-tree-slide
@@ -67,13 +71,7 @@
 CLOCK: [2016-01-12 Tue 11:28]--[2016-01-12 Tue 11:29] =>  0:01
 [2016-01-12 Tue 11:28]
 [[file:~/emacs/study/prelude/README.md::<kbd>C-c%20.%20%2B</kbd>%20|%20Increment%20integer%20at%20point.%20Default%20is%20%2B1.][file:~/emacs/study/prelude/README.md::<kbd>C-c . +</kbd> | Increment integer at point. Default is +1.]]
-* TODO emacs tasks
-** DONE integrate emacs delight
-   CLOCK: [2016-01-17 Sun 11:30]--[2016-01-17 Sun 11:31] =>  0:01
-   [2016-01-17 Sun 11:30]
-   [[git:~/life/worklog.org::master@{2016-01-17}::613]]
-   https://github.com/antonio/delight.el
-   http://aliquote.org/memos/2015/08/15/why-i-am-still-using-emacs
+* emacs tasks
 ** TODO Add keybindings
    <kbd>C-c u</kbd> | Open a new buffer containing the contents of URL.
    <kbd>C-c e</kbd> | Eval a bit of Emacs Lisp code and replace it with its result.
@@ -101,10 +99,6 @@ CLOCK: [2016-01-12 Tue 11:28]--[2016-01-12 Tue 11:29] =>  0:01
    [[elisp-function::recent-keys]]
    git@github.com:dacap/keyfreq.git
    http://ergoemacs.org/emacs/command-frequency.html
-** TODO collect keystroke data from sessions and generate heat map
-   CLOCK: [2016-01-17 Sun 10:03]--[2016-01-17 Sun 10:03] =>  0:00
-   [2016-01-17 Sun 10:03]
-   http://www.drbunsen.org/vim-croquet/
 ** TODO generate mail statiticts with mu
   CLOCK: [2016-01-17 Sun 11:11]--[2016-01-17 Sun 11:11] =>  0:00
   [2016-01-17 Sun 11:11]
@@ -113,19 +107,10 @@ CLOCK: [2016-01-12 Tue 11:28]--[2016-01-12 Tue 11:29] =>  0:01
 #+BEGIN_SRC sh
 mu find 'mime:image/*'
 ** TODO integrate inbox.el into the modeline
-** TODO
-  CLOCK: [2016-01-17 Sun 12:39]--[2016-01-17 Sun 12:40] =>  0:01
-[2016-01-17 Sun 12:39]
-
 ** TODO research stack exchange emacs
    CLOCK: [2016-01-17 Sun 00:54]--[2016-01-17 Sun 00:54] =>  0:00
    [2016-01-17 Sun 00:54]
    git@github.com:vermiculus/sx.el.git
-
-
-** TODO add project root directory to projectile projects top of list
-   CLOCK: [2016-01-18 Mon 11:26]--[2016-01-18 Mon 11:29] =>  0:03
-   [2016-01-18 Mon 11:26]
 
 ** TODO complete mail setup
    http://jason.the-graham.com/2011/01/10/email_with_mutt_offlineimap_imapfilter_msmtp_archivemail/
@@ -151,3 +136,118 @@ mu find 'mime:image/*'
 *** TODO use gnome-keyring
 http://www.clasohm.com/blog/one-entry?entry_id=90957
 ** TODO in org normal mode enable smart tab
+** TODO list mu contacts by frequency ~/.mu/cache/contacts
+  CLOCK: [2016-01-17 Sun 16:38]--[2016-01-17 Sun 16:38] =>  0:00
+[2016-01-17 Sun 16:38]
+** TODO gutenberg hitlist
+   CLOCK: [2016-01-17 Sun 17:26]--[2016-01-17 Sun 17:27] =>  0:01
+   [2016-01-17 Sun 17:26]
+   look at [[elisp-function::speed-type-text]]
+** TODO use unicode icons for 'List' column of mu4e
+  CLOCK: [2016-01-19 Tue 11:31]--[2016-01-19 Tue 11:32] =>  0:01
+[2016-01-19 Tue 11:31]
+** TODO set up nullmailer for sending mails
+   CLOCK: [2016-01-19 Tue 14:23]--[2016-01-19 Tue 14:23] =>  0:00
+   [2016-01-19 Tue 14:23]
+   https://vxlabs.com/2014/06/06/configuring-emacs-mu4e-with-nullmailer-offlineimap-and-multiple-identities/
+** TODO list mu contacts by frequency ~/.mu/cache/contacts
+  CLOCK: [2016-01-17 Sun 16:38]--[2016-01-17 Sun 16:38] =>  0:00
+[2016-01-17 Sun 16:38]
+** TODO gutenberg hitlist
+   CLOCK: [2016-01-17 Sun 17:26]--[2016-01-17 Sun 17:27] =>  0:01
+   [2016-01-17 Sun 17:26]
+   look at [[elisp-function::speed-type-text]]
+** TODO use unicode icons for 'List' column of mu4e
+  CLOCK: [2016-01-19 Tue 11:31]--[2016-01-19 Tue 11:32] =>  0:01
+[2016-01-19 Tue 11:31]
+** TODO set up nullmailer for sending mails
+   CLOCK: [2016-01-19 Tue 14:23]--[2016-01-19 Tue 14:23] =>  0:00
+   [2016-01-19 Tue 14:23]
+   https://vxlabs.com/2014/06/06/configuring-emacs-mu4e-with-nullmailer-offlineimap-and-multiple-identities/
+** TODO integrate smmry.com
+   CLOCK: [2016-01-17 Sun 18:49]--[2016-01-17 Sun 18:50] =>  0:01
+   [2016-01-17 Sun 18:49]
+   http://smmry.com/api
+** TODO use skewer to execute javascript from emacs
+  CLOCK: [2016-01-19 Tue 18:20]--[2016-01-19 Tue 18:20] =>  0:00
+[2016-01-19 Tue 18:20]
+[[git:~/quicklisp/local-projects/web/server.lisp::master@{2016-01-19}::157]]
+** TODO set up mail quiing                                            :emacs:
+  CLOCK: [2016-01-21 Thu 08:02]--[2016-01-21 Thu 08:03] =>  0:01
+[2016-01-21 Thu 08:02]
+[[info:mu4e#Queuing%20mail][info:mu4e#Queuing mail]]
+** TODO evalueate https://github.com/fgallina/mu4e-multi
+  CLOCK: [2016-01-21 Thu 08:23]--[2016-01-21 Thu 08:23] =>  0:00
+[2016-01-21 Thu 08:23]
+[[git:~/emacs/init/mail.el::master@{2016-01-21}::144]]
+** TODO hilight messages from friends                                  :mu4e:
+  CLOCK: [2016-01-21 Thu 11:21]--[2016-01-21 Thu 11:22] =>  0:01
+[2016-01-21 Thu 11:21]
+** TODO evaluate mbsync instead of offlineimap
+  CLOCK: [2016-01-22 Fri 09:39]--[2016-01-22 Fri 09:40] =>  0:01
+[2016-01-22 Fri 09:39]
+** TODO evaluate archivemail
+   CLOCK: [2016-01-22 Fri 09:46]--[2016-01-22 Fri 09:46] =>  0:00
+   [2016-01-22 Fri 09:46]
+   http://archivemail.sourceforge.net/
+** TODO add mail tagging via X-Keywords
+   CLOCK: [2016-01-22 Fri 10:12]--[2016-01-22 Fri 10:13] =>  0:01
+   [2016-01-22 Fri 10:12]
+   https://groups.google.com/forum/#!msg/mu-discuss/xUwHcnU_-_U/uE1hbTCpxIEJ
+
+   3) mu supports tagging messages via an extra header on the messages
+      (X-Keywords), which fits better with my setup than what notmuch
+      does, storing tags entirely in the database. A downside of this
+      is that I had to write my little script to change tags, as mu
+      only indexes / searches them.
+
+   4) A consequence of 2 is that all the metadata for messages can be
+      recovered from the Maildir alone. This makes it much easier syncing
+      the Maildir between different machines without losing data (in my
+      case home, work and laptop). My setup with notmuch was a
+      nightmare...
+** TODO Have slime-eval-last-expression not include ',' before '('
+  CLOCK: [2016-01-25 Mon 13:38]--[2016-01-25 Mon 13:39] =>  0:01
+  [2016-01-25 Mon 13:38]
+
+So that I can evaluate expressions embedded in backquotes.
+** TODO font lock for polymer macros
+  CLOCK: [2016-01-27 Wed 11:51]--[2016-01-27 Wed 11:51] =>  0:00
+[2016-01-27 Wed 11:51]
+[[git:~/quicklisp/local-projects/spaces/folders.lisp::master@{2016-01-27}::37]]
+** TODO set git commit message from org TODO
+  CLOCK: [2016-02-08 Mon 15:54]--[2016-02-08 Mon 15:54] =>  0:00
+[2016-02-08 Mon 15:54]
+[[git:~/quicklisp/local-projects/spaces/documentation/spaces-tasks.org::master@{2016-02-08}::126]]
+** TODO add a function to correct the whitespace around top level definitions :emacs:
+  CLOCK: [2016-02-06 Sat 16:01]--[2016-02-06 Sat 16:01] =>  0:00
+[2016-02-06 Sat 16:01]
+[[git:~/quicklisp/local-projects/spaces/render.lisp::master@{2016-02-06}::98]]
+** TODO adjust price tabbing on saving ledger files
+  CLOCK: [2016-02-07 Sun 08:23]--[2016-02-07 Sun 08:23] =>  0:00
+[2016-02-07 Sun 08:23]
+[[git:~/life/halliburton.ledger::master@{2016-02-07}::132]]
+** TODO evaluate reckon                                               :money:
+  CLOCK: [2016-02-02 Tue 17:38]--[2016-02-02 Tue 17:38] =>  0:00
+[2016-02-02 Tue 17:38]
+https://github.com/cantino/reckon
+http://blog.andrewcantino.com/blog/2013/02/16/command-line-accounting-with-ledger-and-reckon/
+** TODO evaluate new ledger book                                      :money:
+  CLOCK: [2016-02-06 Sat 13:24]--[2016-02-06 Sat 13:24] =>  0:00
+[2016-02-06 Sat 13:24]
+https://github.com/rolfschr/GSWL-ecosystem
+** TODO evaluate parinfer
+  CLOCK: [2016-02-15 Mon 14:07]--[2016-02-15 Mon 14:14] =>  0:07
+[2016-02-15 Mon 14:07]
+https://shaunlebron.github.io/parinfer/#introduction
+
+** TODO blog with org mode
+  CLOCK: [2016-02-17 Wed 20:12]--[2016-02-17 Wed 20:12] =>  0:00
+[2016-02-17 Wed 20:12]
+https://ogbe.net/blog/blogging_with_org.html
+https://pavpanchekha.com/blog/org-mode-publish.html
+http://pragmaticemacs.com/emacs/org-mode-basics-v-exporting-your-notes/
+** TODO set up email templates with yasnippets
+http://pragmaticemacs.com/emacs/email-templates-in-mu4e-with-yasnippet/
+http://blog.binchen.org/posts/how-to-use-yasnippets-to-produce-email-templates-in-emacs.html
+

@@ -2,7 +2,9 @@
 
 (use-package mu4e
   :config (setq mu4e-use-fancy-chars nil
-                mu4e-headers-full-search nil))
+                mu4e-headers-full-search nil
+                mu4e-view-show-addresses t
+                mu4e-attachment-dir "~/attach"))
 
 
 (use-package mu4e-contrib)
@@ -25,12 +27,12 @@
 
 ;; something about ourselves
 (setq
- user-mail-address "whalliburton@gmail.com"
+ user-mail-address "will@blueskystewardship.org"
  user-full-name  "William Halliburton"
- smtpmail-smtp-user "whalliburton"
- mu4e-sent-folder   "/whalliburton/sent"
- mu4e-drafts-folder "/whalliburton/drafts"
- mu4e-trash-folder  "/whalliburton/trash")
+ smtpmail-smtp-user "will@blueskystewardship.org"
+ mu4e-sent-folder   "/will/sent"
+ mu4e-drafts-folder "/will/drafts"
+ mu4e-trash-folder  "/will/trash")
 
 (defvar my-mu4e-account-alist
   '(
@@ -74,16 +76,16 @@
        "Missoula, MT 59801\n"
        "www.blueskystewardship.org\n")))))
 
+
 (setq mu4e-refile-folder
       (lambda (msg)
         (cond
-         ((mu4e-message-contact-field-matches msg :to "whalliburton@gmail.com") "/whalliburton/all")
          ((mu4e-message-contact-field-matches msg :to "will@blueskystewardship.org") "/will/all")
+         ((mu4e-message-contact-field-matches msg :to "whalliburton@gmail.com") "/whalliburton/all")
          ((mu4e-message-contact-field-matches msg :to "info@blueskystewardship.org") "/info/all")
          ;; everything else goes to /all
          ;; important to have a catch-all at the end!
-         (t  "/whalliburton/all"))))
-
+         (t  "/will/all"))))
 (setq mu4e-user-mail-address-list
       (mapcar (lambda (account) (cadr (assq 'user-mail-address account)))
                             my-mu4e-account-alist))
@@ -126,10 +128,10 @@
 ;; the 'All Mail' folder by pressing ``ma''.
 
 (setq mu4e-maildir-shortcuts
-      '( ("/whalliburton/all"               . ?a)
-         ("/whalliburton/sent"   . ?s)
-         ("/whalliburton/trash"       . ?t)
-         ("/whalliburton/drafts"    . ?d)))
+      '( ("/will/all"    . ?a)
+         ("/will/sent"   . ?s)
+         ("/will/trash"  . ?t)
+         ("/will/drafts" . ?d)))
 
 (add-to-list 'mu4e-bookmarks '("flag:flagged"       "starred"     ?s))
 ;;(add-to-list 'mu4e-bookmarks '("size:5M..500M"       "Big messages"     ?b))
@@ -245,6 +247,7 @@
 
 (evil-add-hjkl-bindings mu4e-main-mode-map 'normal
   "J" 'mu4e~headers-jump-to-maildir
+  "M" 'visit-mail-queue
   "j" 'evil-next-line
   "RET" 'mu4e-view-message)
 
@@ -276,5 +279,8 @@
 (setq smtpmail-queue-mail t  ;; start in queuing mode
       smtpmail-queue-dir   "~/Mail/queue/cur")
 
-
+(defun visit-mail-queue ()
+  (interactive)
+  (dired-other-window smtpmail-queue-dir)
+  (revert-buffer))
 
