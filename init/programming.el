@@ -1,5 +1,11 @@
 ;; programming.el
 
+;;; common lisp
+
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+
+(setq inferior-lisp-program "/usr/local/bin/sbcl --no-linedit")
+
 (use-package slime)
 
 (use-package lisp-helpers)
@@ -38,14 +44,6 @@
 ;; major mode for editing SCSS files
 (use-package scss-mode)
 
-
-;;; common lisp
-
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
-
-(setq inferior-lisp-program "/usr/local/bin/sbcl --no-linedit")
-
-(use-package slime)
 
 ;; (defvar *package-name-substitutions*
 ;;   '(("LAUNCH" . "☉ ")
