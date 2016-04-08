@@ -203,7 +203,7 @@
       '((:human-date . 12)
         (:flags . 6)
         (:mailing-list . 10)
-        (:from . 22)
+        (:from-or-to . 22)
         (:recipinitials . 20)
         (:subject)))
 
