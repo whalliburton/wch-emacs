@@ -33,6 +33,7 @@
    "future"
    "keybindings"
    "bbdb"
+   "templates"
    "last"
 
          ))
