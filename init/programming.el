@@ -137,3 +137,4 @@
     (with-temp-buffer
       (byte-compile-file filename t))))
 
+(use-package setnu-mode)

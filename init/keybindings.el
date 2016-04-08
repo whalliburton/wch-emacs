@@ -29,6 +29,7 @@
        `("C-x v"   ; vc - magit for life!
          "C-x C-d" ; list-directory - dired is better
          "C-x C-z" ; suspend-frame - what! leave emacs!
+         "C-x C-l"
          "C-z"
          "C-x c" ; helm
   ))
@@ -160,7 +161,10 @@
 
         ("C-c a" mu4e)
 
-        ("C-c I" indent-buffer)))
+        ("C-c I" indent-buffer)
+
+        ("C-x C-l" setnu-mode)
+        ))
 
 (defun wch-lisp-completion-at-point ()
   (interactive)
