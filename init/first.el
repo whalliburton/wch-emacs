@@ -109,3 +109,4 @@
   (save-excursion
     (indent-region (point-min) (point-max) nil)))
 
+(use-package dired-x)
