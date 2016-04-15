@@ -284,3 +284,51 @@
   (dired-other-window smtpmail-queue-dir)
   (revert-buffer))
 
+
+;; (defvar *export-buffer* nil)
+;; (defvar *export-message* nil)
+
+;; (defun export-all-emails ()
+;;   (interactive)
+;;   (let ((name (read-from-minibuffer "name: " "foo")))
+;;     (let ((buffer (get-buffer-create (format "exported-mail-messages-%s.org" name))))
+;;       (setf *export-buffer* buffer)
+;;       (save-excursion
+;;         (goto-char (point-min))
+;;         (loop for x from 1 to (count-lines (point-min) (point-max))
+;;               do (let* ((message (mu4e-message-at-point))
+;;                         (docid (mu4e-message-field message :docid)))
+;;                    (setf *export-message* message)
+;;                    (mu4e~proc-view docid)
+;;                    (forward-line))))
+;;       (switch-to-buffer buffer)
+;;       (goto-char (point-min))
+;;       (org-mode)))
+;;   (message "done exporting emails"))
+
+
+;; (setf mu4e-view-func 'wch-mu4e-view-func)
+
+;; (defun wch-mu4e-view-func (msg)
+;;   (with-current-buffer *export-buffer*
+;;     (let* ((subject (mu4e-message-field msg :subject))
+;;            (date (mu4e-message-field msg :date))
+;;            (from (car (mu4e-message-field msg :from)))
+;;            (to (car (mu4e-message-field msg :to)))
+;;            (body (mu4e-message-body-text msg))
+;;            (thread (mu4e-message-field  :thread))
+;;            (thread-level (if thread (plist-get thread :level) 0))
+;;            (indent (make-string (+ thread-level 2) 32)))
+;;       (insert
+;;        (format "%-2s  %c:%c  %s  %s\n%s\n"
+;;                (make-string (+ thread-level 1) ?*)
+;;                (aref (if (car from) (car from) (cdr from)) 0)
+;;                (aref (if (car to) (car to) (cdr to)) 0)
+;;                (format-time-string "%y-%m-%d %H:%M" date)
+;;                subject body)))))
+
+
+;; (defun foo ()
+;;   (interactive)
+;;   (message "%s" (mu4e-message-at-point)))
+
