@@ -85,7 +85,7 @@
         ("C-c ," slime-selector)
         ("C-c C-q" slime-eval-print-last-expression)
         ("C-x C-a" copy-symbol)
-        ("C-x C-h" hyperspec-lookup)
+        ("C-x C-h" wch-hyperspec-lookup)
         ("C-x C-j" info-lookup-symbol)
 
         ("C-c k" comment-region)

@@ -138,3 +138,8 @@
       (byte-compile-file filename t))))
 
 (use-package setnu-mode)
+
+(defun wch-hyperspec-lookup (symbol-name)
+  (interactive (list (common-lisp-hyperspec-read-symbol-name)))
+  (let ((browse-url-browser-function 'w3m-browse-url))
+    (hyperspec-lookup symbol-name)))
