@@ -7,6 +7,9 @@
 (setq inferior-lisp-program "/usr/local/bin/sbcl --no-linedit")
 
 (use-package slime)
+(use-package slime-repl-ansi-color)
+
+(slime-setup '(slime-fancy slime-repl-ansi-color))
 
 (use-package lisp-helpers)
 

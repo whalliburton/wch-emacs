@@ -58,3 +58,6 @@
 [submodule "site-lisp/x86-lookup"]
 	path = site-lisp/x86-lookup
 	url = git@github.com:skeeto/x86-lookup.git
+[submodule "site-lisp/slime-repl-ansi-color"]
+	path = site-lisp/slime-repl-ansi-color
+	url = https://github.com/deadtrickster/slime-repl-ansi-color.git
