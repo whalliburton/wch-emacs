@@ -146,3 +146,22 @@
   (interactive (list (common-lisp-hyperspec-read-symbol-name)))
   (let ((browse-url-browser-function 'w3m-browse-url))
     (hyperspec-lookup symbol-name)))
+
+(define-derived-mode fundamental-ansi-mode fundamental-mode "fundamental ansi"
+  "Fundamental mode that understands ansi colors."
+  (require 'ansi-color)
+  (ansi-color-apply-on-region (point-min) (point-max)))
+
+
+(add-hook 'before-revert-hook 'start-revert-with-color)
+(add-hook 'after-revert-hook 'finish-revert-with-color)
+
+(defvar wch-revert-start nil)
+
+(defun start-revert-with-color ()
+  (interactive)
+  (setf wch-revert-start (point-max)))
+
+(defun finish-revert-with-color ()
+  (interactive)
+  (ansi-color-apply-on-region wch-revert-start (point-max)))
