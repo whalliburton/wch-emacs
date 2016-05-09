@@ -33,7 +33,7 @@
                               (slime-symbol-at-point))
                           (slime-read-symbol-name "Edit Definition of: "))))
   (cond
-   (slime-mode (slime-edit-definition name))
+   ((or slime-editing-mode slime-mode) (slime-edit-definition name))
    (t (elisp-find-definition name))))
 
 ;; only works on X11 terminal
