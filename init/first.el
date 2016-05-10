@@ -110,3 +110,10 @@
     (indent-region (point-min) (point-max) nil)))
 
 (use-package dired-x)
+
+(use-package speed-type)
+
+(use-package recentf
+  :config
+  (setf recentf-max-saved-items nil)
+  (run-at-time nil (* 5 60) 'recentf-save-list))

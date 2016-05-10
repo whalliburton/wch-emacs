@@ -61,3 +61,6 @@
 [submodule "site-lisp/slime-repl-ansi-color"]
 	path = site-lisp/slime-repl-ansi-color
 	url = https://github.com/deadtrickster/slime-repl-ansi-color.git
+[submodule "site-lisp/speed-type"]
+	path = site-lisp/speed-type
+	url = git@github.com:hagleitn/speed-type.git
