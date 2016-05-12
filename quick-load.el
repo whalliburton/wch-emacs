@@ -9,3 +9,7 @@
 (setq inhibit-splash-screen t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
+
+(add-to-list 'load-path "~/emacs/site-lisp/evil")
+(require 'evil)
+(evil-mode 1)
