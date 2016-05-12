@@ -6,10 +6,28 @@
 
 (setq inferior-lisp-program "/usr/local/bin/sbcl --no-linedit")
 
-(use-package slime)
-(use-package slime-repl-ansi-color)
+(use-package slime
+  :config (slime-setup '(;;slime-fancy
+                         slime-repl
+                         slime-autodoc
+                         slime-c-p-c
+                         slime-editing-commands
+                         slime-fancy-inspector
+                         slime-fancy-trace
+                         slime-fuzzy
+                         slime-mdot-fu
+                         slime-macrostep
+                         slime-presentations
+                         slime-scratch
+                         slime-references
+                         slime-package-fu
+                         slime-fontifying-fu
+                         slime-trace-dialog
+                         slime-repl-ansi-color
+                         slime-indentation))
+             (setq lisp-indent-function 'common-lisp-indent-function))
 
-(slime-setup '(slime-fancy slime-repl-ansi-color))
+(use-package slime-repl-ansi-color)
 
 (use-package lisp-helpers)
 
