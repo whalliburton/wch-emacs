@@ -14,6 +14,7 @@
 (custom-set-variables
  '(auto-insert 'other)
  '(auto-insert-directory "~/emacs/autoinsert/")
+ '(auto-insert-query nil)
  '(auto-insert-alist '((("\\.\\([Hh]\\|hh\\|hpp\\)\\'" . "C / C++ header") . ["template.h" c++-mode my/autoinsert-yas-expand])
                        (("\\.\\([C]\\|cc\\|cpp\\)\\'" . "C++ source") . ["template.cc" my/autoinsert-yas-expand])
                        (("\\.sh\\'" . "Shell script") . ["template.sh" my/autoinsert-yas-expand])
