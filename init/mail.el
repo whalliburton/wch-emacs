@@ -43,13 +43,7 @@
      (mu4e-drafts-folder "/will/drafts")
      (mu4e-trash-folder  "/will/trash")
      (smtpmail-smtp-user "will@blueskystewardship.org")
-     (mu4e-compose-signature
-      (concat
-       "William Halliburton\n"
-       "Blue Sky Stewardship\n"
-       "120 Hickory St. Missoula, MT 59801\n"
-       "406-830-5031\n"
-       "www.blueskystewardship.org\n")))
+     (mu4e-compose-signature "|-| /\ ( /< /\ ~|~ |-| () |\|"))
     ("whalliburton"
      (user-mail-address  "whalliburton@gmail.com")
      (user-full-name     "William Halliburton")
