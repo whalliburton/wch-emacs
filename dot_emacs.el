@@ -34,6 +34,7 @@
    "keybindings"
    "bbdb"
    "templates"
+   "crypt"
    "linux"
    "last"
 
