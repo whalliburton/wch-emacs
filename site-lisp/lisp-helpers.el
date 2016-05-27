@@ -188,8 +188,13 @@
              (view-mode)
              (auto-revert-tail-mode)
              (setq dribble-buffer (current-buffer)))
-    (switch-to-buffer-other-window dribble-buffer))
-  (end-of-buffer))
+    (switch-to-buffer dribble-buffer))
+  (goto-char (point-max))
+  (delete-other-windows)
+  (let ((this-scroll-margin
+          (min (max 0 scroll-margin)
+               (truncate (/ (window-body-height) 4.0)))))
+    (recenter (- -1 this-scroll-margin))))
 
 (defvar *protected-buffers* ())
 
