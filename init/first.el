@@ -117,3 +117,6 @@
   :config
   (setf recentf-max-saved-items nil)
   (run-at-time nil (* 5 60) 'recentf-save-list))
+
+(use-package google-translate)
+(use-package google-translate-default-ui)
