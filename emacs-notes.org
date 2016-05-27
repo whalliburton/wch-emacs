@@ -56,21 +56,6 @@
 #+CATEGORY: notes,tasks
 
 * completed emacs tasks
-** DONE set up math keybindings
-<kbd>C-c . +</kbd> | Increment integer at point. Default is +1.
-<kbd>C-c . -</kbd> | Decrement integer at point. Default is -1.
-<kbd>C-c . *</kbd> | Multiply integer at point. Default is *2.
-<kbd>C-c . /</kbd> | Divide integer at point. Default is /2.
-<kbd>C-c . \\</kbd> | Modulo integer at point. Default is modulo 2.
-<kbd>C-c . ^</kbd> | Power to the integer at point. Default is ^2.
-<kbd>C-c . <</kbd> | Left-shift integer at point. Default is 1 position to the left.
-<kbd>C-c . ></kbd> | Right-shift integer at point. Default is 1 position to the right.
-<kbd>C-c . #</kbd> | Convert integer at point to specified base. Default is 10.
-<kbd>C-c . %</kbd> | Replace integer at point with another specified integer.
-<kbd>C-c . '</kbd> | Perform arithmetic operations on integer at point. User specifies the operator.
-CLOCK: [2016-01-12 Tue 11:28]--[2016-01-12 Tue 11:29] =>  0:01
-[2016-01-12 Tue 11:28]
-[[file:~/emacs/study/prelude/README.md::<kbd>C-c%20.%20%2B</kbd>%20|%20Increment%20integer%20at%20point.%20Default%20is%20%2B1.][file:~/emacs/study/prelude/README.md::<kbd>C-c . +</kbd> | Increment integer at point. Default is +1.]]
 * emacs tasks
 ** TODO Add keybindings
    <kbd>C-c u</kbd> | Open a new buffer containing the contents of URL.
@@ -251,3 +236,6 @@ http://pragmaticemacs.com/emacs/org-mode-basics-v-exporting-your-notes/
 http://pragmaticemacs.com/emacs/email-templates-in-mu4e-with-yasnippet/
 http://blog.binchen.org/posts/how-to-use-yasnippets-to-produce-email-templates-in-emacs.html
 
+** TODO reserch synching calendars with WebDAV
+   https://github.com/dengste/org-caldav
+* TODO http://stackoverflow.com/questions/17254967/using-org-capture-templates-with-mu4e
