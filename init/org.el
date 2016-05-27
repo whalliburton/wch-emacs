@@ -33,7 +33,7 @@
       org-src-tab-acts-natively t
       org-clock-idle-time 10)
 
-(org-babel-do-load-languages 'org-babel-load-languages '((lisp . t) (sh . t) (calc . t) (ditaa . t) (ledger . t)))
+(org-babel-do-load-languages 'org-babel-load-languages '((lisp . t) (sh . t) (calc . t) (ditaa . t) (ledger . t) (C . t)))
 ;; TODO study http://doc.norang.ca/org-mode.html
 
 (setq org-capture-templates
@@ -103,8 +103,7 @@
 
 (setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
                           (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING")
-                          (sequence "TICKETED(k)")
-                          (sequence "INVITED(i@/!)" "WELCOMED(e)" "TEASED(s)" "ATTENDING(a@/!)" "UPCOMING(u@/!)"))
+)
       org-todo-keyword-faces
       '(("TODO" :foreground "red" :weight bold)
         ("NEXT" :foreground "blue" :weight bold)

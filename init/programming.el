@@ -183,3 +183,6 @@
 (defun finish-revert-with-color ()
   (interactive)
   (ansi-color-apply-on-region wch-revert-start (point-max)))
+
+(evil-set-initial-state 'slime-xref-mode 'normal)
+(evil-make-overriding-map slime-xref-mode-map 'normal t)

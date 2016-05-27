@@ -1,15 +1,15 @@
 ;; modeline.el
 
-(use-package evil-mode-line)
-
-(setq
- evil-mode-line-color
- '((normal . "black")
-   (insert . "black")
-   (replace . "#575735")
-   (operator . "DarkSeaGreen4")
-   (visual . "SteelBlue4")
-   (emacs . "#000011")))
+(use-package evil-mode-line
+  :config
+  (setq
+   evil-mode-line-color
+   '((normal . "black")
+     (insert . "black")
+     (replace . "#575735")
+     (operator . "DarkSeaGreen4")
+     (visual . "SteelBlue4")
+     (emacs . "#000011"))))
 
 (defun short-system-name ()
   (let* ((name (system-name))
