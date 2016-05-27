@@ -5,7 +5,10 @@
 (use-package helm-ls-git)
 (use-package helm-misc)
 (use-package helm-locate)
-(use-package helm-projectile)
+(use-package helm-projectile
+  :config
+  (add-to-list 'projectile-globally-ignored-directories ".~")
+  (add-to-list 'projectile-globally-ignored-directories "bower_components"))
 (use-package helm-elisp)
 (use-package helm-descbinds)
 (use-package helm-org)
@@ -25,7 +28,7 @@
  '(helm-ff-directory ((t (:background "black" :foreground "color-32" :weight bold))))
  '(helm-ff-dotted-directory ((t (:background "black" :foreground "color-27" :weight bold))))
  '(helm-ff-dotted-symlink-directory ((t (:background "black" :foreground "DarkOrange"))))
- '(helm-selection ((t (:background "color-236" :distant-foreground "black")))))
+ '(helm-selection ((t (:background "color-234" :distant-foreground "black")))))
 
 (setq helm-source-mu-contacts
   (helm-build-in-buffer-source "Search contacts with mu"
