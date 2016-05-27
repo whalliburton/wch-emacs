@@ -34,6 +34,7 @@
    "keybindings"
    "bbdb"
    "templates"
+   "linux"
    "last"
 
          ))
