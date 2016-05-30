@@ -8,6 +8,7 @@
 (mapcar (lambda (name) (load-file (expand-file-name (format "%s/%s.el" "~/emacs/init" name))))
  '(
 
+   "ascii-unicode"
    "first"
    "utility"
    "evil"
