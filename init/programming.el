@@ -186,3 +186,5 @@
 
 (evil-set-initial-state 'slime-xref-mode 'normal)
 (evil-make-overriding-map slime-xref-mode-map 'normal t)
+
+(use-package git-gutter)
