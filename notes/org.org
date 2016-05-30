@@ -1,0 +1,253 @@
+#+TITLE: Notes For Org Mode
+#+CATEGORY:
+#+FILETAGS:
+#+OPTIONS: html-postamble:nil toc:nil
+
+* verse
+
+#+BEGIN_VERSE
+Great clouds overhead
+Tiny black birds rise and fall
+Snow covers Emacs
+
+    -- AlexSchroeder
+#+END_VERSE
+
+* quotes
+
+#+BEGIN_QUOTE
+Everything should be made as simple as possible,
+but not any simpler -- Albert Einstein[fn:1]
+#+END_QUOTE
+
+[fn:1] Relatively speaking.
+
+* centering
+
+#+BEGIN_CENTER
+Everything should be made as simple as possible,\\
+but not any simpler -- Albert Einstein
+#+END_CENTER
+
+* emphasis and monspace
+
+You can make words *bold*, /italic/, _underlined_, =verbatim= and
+~code~, and, if you must, +strike-through+.
+
+* horizontal rules
+
+-----
+
+* tables
+
+| ID | x |  y | comments       |
+|----+---+----+----------------|
+| A  | 2 |  4 | blah           |
+| B  | 3 |  9 | blah           |
+| C  | 4 | 16 | blah blah blah |
+| D  | 5 | 25 | blah           |
+
+
+
+* comments
+
+This space left intentionally blank.
+
+# the following heading will not be exported
+
+* COMMENT Hi there!
+
+* latex math
+
+If $a^2=b$ and \( b=2 \), then the solution must be
+either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
+
+
+* [super|sub]scripts
+
+x^2 x^9 x_0 x_9
+
+
+* graphviz
+
+#+BEGIN_SRC dot :file dot_success.png
+  digraph {
+  // graph from left to right
+  rankdir=LR;
+  splines=true;
+  node [shape=box];
+
+  id [label="Install Graphviz"]
+  conf [label="Configure org-babel"]
+  dot [label="DOT in org-mode"]
+
+  id -> conf
+  conf -> dot
+  dot -> "Profit"
+  dot -> "Success" [style=dotted]
+  }
+#+END_SRC
+
+#+CAPTION: We love graphs!
+#+LABEL: fig.dot
+#+RESULTS:
+[[file:dot_success.png]]
+
+This is the [[fig.dot][graph]].
+
+
+* ditaa
+
+#+BEGIN_SRC ditaa :file hello-world.png
+    +--------+   +-------+    +-------+
+    |        | --+ ditaa +--> |       |
+    |  Text  |   +-------+    |diagram|
+    |Document|   |!magic!|    |       |
+    |     {d}|   |       |    |       |
+    +---+----+   +-------+    +-------+
+        :                         ^
+        |       Lots of work      |
+        +-------------------------+
+#+END_SRC
+
+#+CAPTION: default
+#+RESULTS:
+[[file:hello-world.png]]
+
+
+#+BEGIN_SRC ditaa :file hello-world-rounded.png :cmdline -r
+    +--------+   +-------+    +-------+
+    |        | --+ ditaa +--> |       |
+    |  Text  |   +-------+    |diagram|
+    |Document|   |!magic!|    |       |
+    |     {d}|   |       |    |       |
+    +---+----+   +-------+    +-------+
+        :                         ^
+        |       Lots of work      |
+        +-------------------------+
+#+END_SRC
+
+
+#+CAPTION: rounded
+#+RESULTS:
+[[file:hello-world.png]]
+
+
+#+BEGIN_SRC ditaa :file colors.png
++---------+
+| cBLU    |
+|         |
+|    +----+
+|    |cPNK|
+|    |    |
++----+----+
+#+END_SRC
+
+
+
+* plantUML
+
+#+begin_src plantuml :file somefile.png
+title Example Sequence Diagram
+activate Client
+Client -> Server: Session Initiation
+note right: Client requests new session
+activate Server
+Client <-- Server: Authorization Request
+note left: Server requires authentication
+Client -> Server: Authorization Response
+note right: Client provides authentication details
+Server --> Client: Session Token
+note left: Session established
+deactivate Server
+Client -> Client: Saves token
+deactivate Client
+#+end_src
+
+#+RESULTS:
+[[file:somefile.png]]
+
+#+begin_src plantuml :results verbatim pp :ascii t
+title Example Sequence Diagram
+activate Client
+Client -> Server: Session Initiation
+note right: Client requests new session
+activate Server
+Client <-- Server: Authorization Request
+note left: Server requires authentication
+Client -> Server: Authorization Response
+note right: Client provides authentication details
+Server --> Client: Session Token
+note left: Session established
+deactivate Server
+Client -> Client: Saves token
+deactivate Client
+#+end_src
+
+#+RESULTS:
+#+begin_example
+                                  ,------.                   ,------.
+                                  |Client|                   |Server|
+                                  `--+---'                   `--+---'
+                                    ,-.   Session Initiation   ,-.  ,---------------------------!.
+                                    |X| ---------------------->|X|  |Client requests new session|_\
+                                    |X|                        |X|  `-----------------------------'
+  ,------------------------------!. |X| Authorization Request  |X|
+  |Server requires authentication|_\|X| <- - - - - - - - - - - |X|
+  `--------------------------------'|X|                        |X|
+                                    |X| Authorization Response |X|  ,--------------------------------------!.
+                                    |X| ---------------------->|X|  |Client provides authentication details|_\
+                                    `-'                        |X|  `----------------------------------------'
+              ,-------------------!. |      Session Token      |X|
+              |Session established|_\| <- - - - - - - - - - - -|X|
+              `---------------------'|                         `-'
+                                     |                          |
+                                     |----.                     |
+                                     |    | Saves token         |
+                                  ,--+<---'                  ,--+---.
+                                  |Client|                   |Server|
+                                  `------'                   `------'
+#+end_example
+
+#+begin_src plantuml :results verbatim pp :unicode t
+title Example Sequence Diagram
+activate Client
+Client -> Server: Session Initiation
+note right: Client requests new session
+activate Server
+Client <-- Server: Authorization Request
+note left: Server requires authentication
+Client -> Server: Authorization Response
+note right: Client provides authentication details
+Server --> Client: Session Token
+note left: Session established
+deactivate Server
+Client -> Client: Saves token
+deactivate Client
+#+end_src
+
+#+RESULTS:
+#+begin_example
+                                  ┌──────┐                   ┌──────┐
+                                  │Client│                   │Server│
+                                  └──┬───┘                   └──┬───┘
+                                    ┌┴┐   Session Initiation   ┌┴┐  ╔═════════════════════════════╗
+                                    │ │ ──────────────────────>│ │  ║Client requests new session ░║
+                                    │ │                        │ │  ╚═════════════════════════════╝
+  ╔════════════════════════════════╗│ │ Authorization Request  │ │
+  ║Server requires authentication ░║│ │ <─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ │ │
+  ╚════════════════════════════════╝│ │                        │ │
+                                    │ │ Authorization Response │ │  ╔════════════════════════════════════════╗
+                                    │ │ ──────────────────────>│ │  ║Client provides authentication details ░║
+                                    └┬┘                        │ │  ╚════════════════════════════════════════╝
+              ╔═════════════════════╗│      Session Token      │ │
+              ║Session established ░║│ <─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─│ │
+              ╚═════════════════════╝│                         └┬┘
+                                     │                          │
+                                     │────┐                     │
+                                     │    │ Saves token         │
+                                  ┌──┴<───┘                  ┌──┴───┐
+                                  │Client│                   │Server│
+                                  └──────┘                   └──────┘
+#+end_example
+
