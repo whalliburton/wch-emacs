@@ -9,6 +9,9 @@
 
 (use-package mu4e-contrib)
 
+(use-package org-mu4e
+             :config (setq org-mu4e-convert-to-html t))
+
 ;; sending mail -- replace USERNAME with your gmail username
 ;; also, make sure the gnutls command line utils are installed
 ;; package 'gnutls-bin' in Debian/Ubuntu
