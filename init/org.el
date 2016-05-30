@@ -34,8 +34,14 @@
       org-clock-idle-time 10
       org-confirm-babel-evaluate nil)
 
-(org-babel-do-load-languages 'org-babel-load-languages '((lisp . t) (sh . t) (calc . t) (ditaa . t) (ledger . t) (C . t) (dot . t)))
+(org-babel-do-load-languages 'org-babel-load-languages
+                             '((lisp . t) (sh . t) (calc . t)
+                               (ditaa . t) (ledger . t) (C . t)
+                               (dot . t) (plantuml . t)))
 ;; TODO study http://doc.norang.ca/org-mode.html
+
+(setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar"
+      org-plantuml-jar-path "~/emacs/bin/plantuml.jar")
 
 (setq org-capture-templates
       (quote (("t" "todo" entry (file "~/life/refile.org")
@@ -154,3 +160,46 @@
 ;; link abbrevs
 (add-to-list 'org-link-abbrev-alist '("emacswiki" . "http://www.emacswiki.org/cgi-bin/wiki/"))
 (add-to-list 'org-link-abbrev-alist '("google" . "http://www.google.com/search?q="))
+
+
+
+;;; add ascii text output to platnuml
+
+(defun org-babel-execute:plantuml (body params)
+  "Execute a block of plantuml code with org-babel.
+This function is called by `org-babel-execute-src-block'."
+  (let* ((ascii (cdr (assoc :ascii params)))
+         (unicode (cdr (assoc :unicode params)))
+         (text (or ascii unicode)))
+    (let* ((out-file (or text
+                         (cdr (assoc :file params))
+                      (error "PlantUML requires a \":file\", \":ascii\", or \"unicode\" header argument")))
+           (cmdline (cdr (assoc :cmdline params)))
+           (in-file (org-babel-temp-file "plantuml-"))
+           (java (or (cdr (assoc :java params)) ""))
+           (cmd (if (string= "" org-plantuml-jar-path)
+                    (error "`org-plantuml-jar-path' is not set")
+                    (concat "java " java " -jar "
+                            (shell-quote-argument
+                             (expand-file-name org-plantuml-jar-path))
+                            (if (and (not text) (string= (file-name-extension out-file) "svg"))
+                                " -tsvg" "")
+                            (if (and (not text) (string= (file-name-extension out-file) "eps"))
+                                " -teps" "")
+                            " -p "
+                            (when ascii " -txt ")
+                            (when unicode " -utxt ")
+                            cmdline " < "
+                            (org-babel-process-file-name in-file)
+                            (when (not text) " > ")
+                            (when (not text) (org-babel-process-file-name out-file))))))
+      (unless (file-exists-p org-plantuml-jar-path)
+        (error "Could not find plantuml.jar at %s" org-plantuml-jar-path))
+      (with-temp-file in-file (insert (concat "@startuml\n" body "\n@enduml")))
+      (message "%s" cmd)
+      (let ((rtn (org-babel-eval cmd "")))
+        (if text
+            rtn
+            nil ;; signal that output has already been written to file
+            )))))
+
