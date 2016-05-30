@@ -34,6 +34,28 @@
  mu4e-drafts-folder "/will/drafts"
  mu4e-trash-folder  "/will/trash")
 
+
+(defun random-sig ()
+  (let ((sigs
+          '("H/-\\(/</-\\TH0/\\/!"
+            "|-| /\\ ( /< /\\ ~|~ |-| () |\\|"
+            "48 61 63 6B 61 74 68 6F 6E 21"
+            "|-|/-\\(|</-\\\"|\"|-|()|\\|!"
+            "|-|4ck4th0n!"
+            ".... .- -.-. -.- .- - .... --- -. .-.-.-"
+            "Unpxnguba!"
+            "][-][ //-\\ << ][< //-\\ `][` ][-][ [[]] ][\\][ !!1"
+
+            "H/-\\PPY H/-\\(/<1/\\/6!"
+            "|-|/-\\|'|'`/ |-|/-\\(|<||\\|[,!"
+            "48 61 70 70 79  48 61 63 6B 69 6E 67 21"
+            "|-|4ppy |-|4ck!ngi"
+            ".... .- .--. .--. -.--    .... .- -.-. -.- .. -. --. .-.-.-"
+            "Unccl Unpxvat!"
+            "][-][ //-\\ ]]P ]]P ``//   ][-][ //-\\ << ][< ]][ ][\\][ ((6 !!1"
+            "|-| /\\ |^ |^ `/   |-| /\\ ( /< | |\\| (_,")))
+    (nth (random (length sigs)) sigs)))
+
 (defvar my-mu4e-account-alist
   '(
     ("will"
@@ -43,7 +65,7 @@
      (mu4e-drafts-folder "/will/drafts")
      (mu4e-trash-folder  "/will/trash")
      (smtpmail-smtp-user "will@blueskystewardship.org")
-     (mu4e-compose-signature "|-| /\ ( /< /\ ~|~ |-| () |\|"))
+     (mu4e-compose-signature random-sig))
     ("whalliburton"
      (user-mail-address  "whalliburton@gmail.com")
      (user-full-name     "William Halliburton")
@@ -102,7 +124,10 @@
          (account-vars (cdr (assoc account my-mu4e-account-alist))))
     (if account-vars
         (mapc #'(lambda (var)
-                  (set (car var) (cadr var)))
+                  (set (car var)
+                       (progn
+                         (message "%S" var)
+                         (cadr var))))
               account-vars)
       (error "No email account found"))))
 
