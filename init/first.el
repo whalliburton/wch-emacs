@@ -120,3 +120,8 @@
 
 (use-package google-translate)
 (use-package google-translate-default-ui)
+
+;; emacs-goodies
+
+(use-package ascii)
+
