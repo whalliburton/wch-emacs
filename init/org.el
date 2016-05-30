@@ -31,9 +31,10 @@
       ;;      org-babel-load-languages '((emacs-lisp . t) (lisp . t) (sh . t))
       org-src-fontify-natively t
       org-src-tab-acts-natively t
-      org-clock-idle-time 10)
+      org-clock-idle-time 10
+      org-confirm-babel-evaluate nil)
 
-(org-babel-do-load-languages 'org-babel-load-languages '((lisp . t) (sh . t) (calc . t) (ditaa . t) (ledger . t) (C . t)))
+(org-babel-do-load-languages 'org-babel-load-languages '((lisp . t) (sh . t) (calc . t) (ditaa . t) (ledger . t) (C . t) (dot . t)))
 ;; TODO study http://doc.norang.ca/org-mode.html
 
 (setq org-capture-templates
