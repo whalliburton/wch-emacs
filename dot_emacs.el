@@ -36,6 +36,7 @@
    "templates"
    "crypt"
    "linux"
+   "registers"
    "last"
 
          ))
