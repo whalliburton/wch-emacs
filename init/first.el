@@ -123,5 +123,8 @@
 
 ;; emacs-goodies
 
-(use-package ascii)
+(use-package ascii-unicode)
 
+(use-package sync-recentf
+             :config (setq recentf-auto-cleanup 60) ; seconds
+             (recentf-mode 1))
