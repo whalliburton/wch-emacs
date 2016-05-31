@@ -37,6 +37,7 @@
    "templates"
    "crypt"
    "linux"
+   "hydra"
    "registers"
    "last"
 
