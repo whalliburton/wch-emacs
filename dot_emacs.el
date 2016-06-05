@@ -39,6 +39,7 @@
    "linux"
    "hydra"
    "registers"
+   "dired"
    "last"
 
          ))
