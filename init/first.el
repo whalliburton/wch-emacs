@@ -113,11 +113,6 @@
 
 (use-package speed-type)
 
-(use-package recentf
-  :config
-  (setf recentf-max-saved-items nil)
-  (run-at-time nil (* 5 60) 'recentf-save-list))
-
 (use-package google-translate)
 (use-package google-translate-default-ui)
 
@@ -125,6 +120,15 @@
 
 (use-package ascii-unicode)
 
+(use-package recentf :config (setf recentf-max-saved-items nil))
 (use-package sync-recentf
              :config (setq recentf-auto-cleanup 60) ; seconds
              (recentf-mode 1))
+
+(use-package irfc
+             :config (setf irfc-directory "~/documents/RFCs/"
+                           irfc-assoc-mode t))
+
+(defun show-local-variables ()
+  (interactive)
+  (pp-eval-expression '(buffer-local-variables)))
