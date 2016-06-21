@@ -1,4 +1,4 @@
-;; mail.el
+; mail.el
 
 (use-package mu4e
   :config (setq mu4e-use-fancy-chars nil
@@ -8,9 +8,6 @@
 
 
 (use-package mu4e-contrib)
-
-(use-package org-mu4e
-             :config (setq org-mu4e-convert-to-html t))
 
 ;; sending mail -- replace USERNAME with your gmail username
 ;; also, make sure the gnutls command line utils are installed
@@ -37,6 +34,19 @@
  mu4e-drafts-folder "/will/drafts"
  mu4e-trash-folder  "/will/trash")
 
+(defvar *impersonate-sig* nil)
+
+(defun impersonate ()
+  (interactive)
+  (setf *impersonate-sig*
+        (if *impersonate-sig*
+            nil
+            (concat
+             "William Halliburton\n"
+             "Blue Sky Stewardship\n"
+             "120 Hickory St. Missoula, MT 59801\n"
+             "www.blueskystewardship.org\n")))
+  (message (if *impersonate-sig* "Impersonating." "Yourself!")))
 
 (defun random-sig ()
   (let ((sigs
@@ -57,7 +67,7 @@
             "Unccl Unpxvat!"
             "][-][ //-\\ ]]P ]]P ``//   ][-][ //-\\ << ][< ]][ ][\\][ ((6 !!1"
             "|-| /\\ |^ |^ `/   |-| /\\ ( /< | |\\| (_,")))
-    (nth (random (length sigs)) sigs)))
+    (or *impersonate-sig* (nth (random (length sigs)) sigs))))
 
 (defvar my-mu4e-account-alist
   '(
@@ -92,7 +102,6 @@
        "William Halliburton\n"
        "Blue Sky Stewardship\n"
        "120 Hickory St. Missoula, MT 59801\n"
-       "Missoula, MT 59801\n"
        "www.blueskystewardship.org\n")))))
 
 
@@ -353,4 +362,29 @@
 ;; (defun foo ()
 ;;   (interactive)
 ;;   (message "%s" (mu4e-message-at-point)))
+
+
+;;; FIX MU4E Org export
+
+(defun org~mu4e-mime-replace-images (str current-file)
+  "Replace images in html files with cid links."
+  (let (html-images)
+    (cons
+     (replace-regexp-in-string ;; replace images in html
+      "src=\"\\([^\"]+\\)\""
+      (lambda (text)
+        (format
+         "src=\"cid:%s\""
+         (let* ((url (and (string-match "src=\"\\(file://\\)?\\([^\"]+\\)\"" text)
+                          (match-string 2 text)))
+                (path (expand-file-name
+                       url (file-name-directory current-file)))
+                (ext (file-name-extension path))
+                (id (replace-regexp-in-string "[\/\\\\]" "_" path)))
+           (add-to-list 'html-images
+                        (org~mu4e-mime-file
+			  (concat "image/" ext) path id))
+           id)))
+      str)
+     html-images)))
 
